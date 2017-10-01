@@ -1,4 +1,3 @@
-# live
+# 日常练习
 
-
-## 日常练习
+## 地址：https://pin84.github.io/live/
