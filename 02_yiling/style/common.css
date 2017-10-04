@@ -1,0 +1,126 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: '微软雅黑', sans-serif;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+/*清除浮动*/
+.clear:before,
+.clear:after {
+  visibility: hidden;
+  display: block;
+  content: '';
+  clear: both;
+}
+/*是部标题，首页有三个*/
+.centerTitle {
+  text-align: center;
+  color: #1b3d60;
+}
+.centerTitle h3 {
+  font-size: 30px;
+}
+.centerTitle p {
+  font-size: 18px;
+  position: relative;
+  display: inline-block;
+}
+.centerTitle p span {
+  position: absolute;
+  width: 17px;
+  height: 3px;
+  background: #1b3d60;
+  top: 8px;
+}
+.centerTitle p span:first-child {
+  left: -30px;
+}
+.centerTitle p span:last-child {
+  right: -30px;
+}
+footer {
+  width: 100%;
+  min-width: 1200px;
+  margin-top: 128px;
+  background: #386d8c;
+}
+footer > div {
+  width: 1200px;
+  height: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+footer > div div.contactUs {
+  float: left;
+  margin: 35px 0 0 60px;
+}
+footer > div div.contactUs p {
+  font-size: 18px ;
+  color: white;
+  line-height: 40px;
+}
+footer > div div.contactUs p.phone {
+  text-indent: 58px;
+}
+footer > div > form {
+  width: 302px;
+  height: 382px;
+  float: right;
+  color: #12283b;
+  position: absolute;
+  top: -20px;
+  right: 34px;
+}
+footer > div > form div.info {
+  width: 270px;
+  height: 130px;
+  padding: 15px 15px;
+  background: #eff3f5;
+}
+footer > div > form div.info p {
+  margin-top: 20px;
+}
+footer > div > form div.info p label {
+  font-size: 14px;
+}
+footer > div > form div.info p input {
+  border: 1px solid #5d8193;
+  border-radius: 4px;
+  margin-left: 10px;
+  width: 188px;
+  height: 23px;
+  padding: 0 5px;
+}
+footer > div div.msg {
+  width: 262px;
+  height: 194px;
+  background: #eff3f5;
+  margin-top: 7px;
+  padding: 10px 20px ;
+}
+footer > div div.msg textarea {
+  width: 188px;
+  height: 138px;
+  border: 1px solid #5d8193;
+  border-radius: 4px;
+  margin: 2px 0 0 40px;
+  padding: 5px 5px ;
+}
+footer > div div.msg input[type=submit] {
+  font-size: 14px;
+  background: #5d8193;
+  border: none;
+  padding: 2px 6px ;
+  border-radius: 2px;
+  margin-left: 200px;
+  color: white;
+}
+footer > div div.msg input[type=submit]:hover {
+  cursor: pointer;
+  background: #164b93;
+}
