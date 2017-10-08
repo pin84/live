@@ -1,0 +1,13 @@
+@import "common.css";
+.banner{
+	width:100%;
+	min-width:1200px;
+	height:598px;
+	overflow:hidden;
+	position:relative;	
+}
+.banner img{
+	position:absolute;
+	left:50%;
+	margin-left:-960px;/* 1920 / 2*/
+}

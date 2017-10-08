@@ -1,0 +1,64 @@
+/* 全局css  把所有的间距设置为0 */
+*{
+	margin:0px;
+	padding:0px;
+	font-family:"黑体";
+}
+body{
+	background-color:#FFF;	
+}
+ul,ol,li{
+	list-style:none;	
+}
+a{
+	text-decoration:none;	
+}
+/* 公共头部 */
+.logo{
+	width:1200px;
+	margin:0 auto;/* 设置块状元素居中 text-align:设置里面文字*/
+}
+.logo h1{
+	display:inline-block;
+	
+	font-size:60px;
+	font-weight:200;
+	color:#531500;
+	line-height:126px;
+}
+.logo span{
+	font-size:33px;
+	color:#531500;
+	display:inline-block;
+	background:url(../images/icon.png) no-repeat;
+	text-indent:46px;
+	margin-left:96px;
+}
+.menu{
+	width:100%;
+	min-width:1200px;
+	height:100px;
+	background-color:#fe8737;	
+}
+.menu ul{
+	width:1200px;
+	height:100px;
+	margin:0 auto;
+}
+.menu ul li{
+	float:left;
+	line-height:95px;
+	padding:0px 25px;
+}
+.menu ul li:hover,.menu ul li.hover{
+	background-color:#000;
+	line-height:93px;	
+}
+.menu ul li a{
+	font-size:30px;
+	color:#FFF;
+}
+.menu ul li:hover a,.menu ul li.hover a{
+	font-size:36px;	
+}
+
