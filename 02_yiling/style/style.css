@@ -191,15 +191,10 @@ footer > div div.msg input[type=submit]:hover {
   letter-spacing: 3px;
   color: #1c3452;
 }
-.menu ul li a:hover {
-  background: #112d49;
-  color: white;
-}
 .menu ul li:nth-child(1) {
   margin-left: 120px;
 }
-.menu ul .li_bg a {
-  display: block;
+.menu ul .current a {
   color: white;
   background: #112d49;
 }
@@ -208,18 +203,38 @@ footer > div div.msg input[type=submit]:hover {
   width: 100%;
   min-width: 1200px;
   height: 700px;
-  margin: 0 auto;
-  position: relative;
   overflow: hidden;
+  position: relative;
 }
 .banner ul.imgList {
+  position: relative;
+}
+.banner ul.imgList li {
   width: 1920px;
   position: absolute;
   left: 50%;
   margin-left: -960px;
+  display: none;
 }
-.banner ul.imgList li {
+.banner ul.imgList li.current {
+  display: block;
+}
+.banner ul.indicator {
+  position: absolute;
+  left: 45%;
+  bottom: 40px;
+}
+.banner ul.indicator li {
+  width: 20px;
+  height: 20px;
   float: left;
+  background: lightgrey;
+  margin-left: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.banner ul.indicator li.current {
+  background: #00a3d2;
 }
 /*products*/
 .products {

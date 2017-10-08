@@ -67,17 +67,15 @@
         letter-spacing: 3px;
         color: #1c3452;
       }
-      a:hover {
-        background: #112d49;
-        color: white;
-      }
+      //a:hover {
+      //  background: #112d49;
+      //  color: white;
+      //}
     }
     li:nth-child(1) {
       margin-left: 120px;
     }
-
-    .li_bg a {
-      display: block;
+    .current a {
       color: white;
       background: #112d49;
     }
@@ -89,19 +87,42 @@
   width: 100%;
   min-width: 1200px;
   height: 700px;
-  margin: 0 auto;
-  position: relative;
   overflow: hidden;
+  position: relative;
   ul.imgList {
-    width: 1920px;
-    position: absolute;
-    left: 50%;
-    margin-left: -960px;
+    position: relative;
     li {
-      float: left;
+      width: 1920px;
+      position: absolute;
+      left: 50%;
+      margin-left: -960px;
+      //float: left;
+      display: none;
     }
-
+    li.current{
+      display: block;
+    }
   }
+
+  //轮播图下和小圆点
+  ul.indicator{
+    position: absolute;
+    left: 45%;
+    bottom: 40px;
+    li{
+      width: 20px;
+      height: 20px;
+      float: left;
+      background: lightgrey;
+      margin-left: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    li.current{
+      background: #00a3d2;
+    }
+  }
+
 }
 
 /*products*/
