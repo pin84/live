@@ -1,0 +1,62 @@
+/*样式重置*/
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-family: '微软雅黑', sans-serif;
+}
+
+body{
+  margin-bottom:30px;
+}
+em {
+  font-style: normal;
+}
+
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  overflow: auto;
+}
+
+/*public*/
+//.clear {
+//  zoom: 1;
+//}
+
+.clear:before, .clear:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.gradient {
+  background: -moz-linear-gradient(top, #FFFFFF, #f8f8f8);
+  background: -webkit-linear-gradient(top, #FFFFFF, #f8f8f8);
+  background: -ms-linear-gradient(top, #FFFFFF, #f8f8f8);
+  -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#f8f8f8', GradientType=0); /*ie9*/
+}
