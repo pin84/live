@@ -199,7 +199,7 @@ header .header_body h1 a:first-child {
 #nav ul.menu li:first-child {
   margin-left: 15px;
 }
-#nav ul.menu li:hover a {
+#nav ul.menu li.active a {
   background: #fa5454;
   border-radius: 5px;
   border-top: 1px solid #ffab63;

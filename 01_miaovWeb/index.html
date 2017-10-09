@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="style/main.css">
+    <script src="./js/main.js"></script>
 </head>
 <body>
 <div id="top_bg">
@@ -48,8 +49,8 @@
 
 <nav id="nav">
     <ul class="menu">
-        <li><a href="">HOME</a></li>
-        <li class="active"><a href="">LATEST ARRIVALS</a></li>
+        <li class="active"><a href="">HOME</a></li>
+        <li><a href="">LATEST ARRIVALS</a></li>
         <li><a href="">MEN'S</a></li>
         <li><a href="">WOMEN'S</a></li>
         <li><a href="">KIDS</a></li>
@@ -62,13 +63,32 @@
 
 <div id="content" class="clear">
     <ul class="banner">
+        <li class="prev">PREV</li>
+        <li class="next">NEXT</li>
+
         <li>
-            <a href=""><img src="./img/banner.jpg" alt="test"></a>
+            <a href=""><img src="./img/banner1.png" alt="test"></a>
             <aside>
                 <h1>product title</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit lacus dapibus ante mattis in
                     adipiscing nibh placerat. Cras bibendum porta diam, non dignissim sapien malesuada vitae. </p>
-                <span></span>
+            </aside>
+        </li>
+        <li>
+            <a href=""><img src="./img/banner2.png" alt="test"></a>
+            <aside>
+                <h1>product title</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit lacus dapibus ante mattis in
+                    adipiscing nibh placerat. Cras bibendum porta diam, non dignissim sapien malesuada vitae. </p>
+            </aside>
+        </li>
+
+        <li>
+            <a href=""><img src="./img/banner3.png" alt="test"></a>
+            <aside>
+                <h1>product title</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras suscipit lacus dapibus ante mattis in
+                    adipiscing nibh placerat. Cras bibendum porta diam, non dignissim sapien malesuada vitae. </p>
             </aside>
         </li>
     </ul>
@@ -184,30 +204,33 @@
                 </div>
             </div>
 
+            <h2>FEATURED PRODUCTS</h2>
             <div class="featured clear">
-                <h2>FEATURED PRODUCTS</h2>
-                <ul>
-                    <li class="pre"><span></span></li>
-                    <li>
-                        <a href="">
-                            <img src="./img/featured_img3.jpg" alt="featured_img3">
-                            <p>High resolution abstract bokeh background</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/featured_img1.jpg" alt="featured_img1">
-                            <p>Elegant MP3 player skin PSD download</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="./img/featured_img2.jpg" alt="featured_img2">
-                            <p>Download shopping bag & icons (PSD & PNG)</p>
-                        </a>
-                    </li>
-                    <li class="next"><span></span></li>
-                </ul>
+                <a class="prev"><span></span></a>
+                <a class="next"><span></span></a>
+                <div class="list_wrap">
+                    <ul>
+                        <li>
+                            <a href="">
+                                <img src="./img/featured_img3.jpg" alt="featured_img3">
+                                <p>High resolution abstract bokeh background</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="./img/featured_img1.jpg" alt="featured_img1">
+                                <p>Elegant MP3 player skin PSD download</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="./img/featured_img2.jpg" alt="featured_img2">
+                                <p>Download shopping bag & icons (PSD & PNG)</p>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
             </div>
         </div>
 
@@ -264,12 +287,16 @@
             <a href="">Toll-Free: 1.234.567.8901</a>
             <a href="">Fax: 1.234.567.8901</a>
             <a href="">Email: <span>Email: Send us an email</span></a>
-            <a href="">MON - SAT 	9am to 7:30pm</a>
+            <a href="">MON - SAT 9am to 7:30pm</a>
             <a href="">Sundays, holidays closed</a>
         </div>
     </div>
 
 </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+
 
 </body>
 </html>

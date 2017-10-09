@@ -199,7 +199,7 @@ header .header_body h1 a:first-child {
 #nav ul.menu li:first-child {
   margin-left: 15px;
 }
-#nav ul.menu li:hover a {
+#nav ul.menu li.active a {
   background: #fa5454;
   border-radius: 5px;
   border-top: 1px solid #ffab63;
@@ -305,7 +305,6 @@ footer div.footer_content div a:hover {
   left: 0;
   background: rgba(0, 0, 0, 0.8);
   color: white;
-  display: none;
 }
 #content ul.banner li aside h1,
 #content ul.banner li aside p {
@@ -325,7 +324,35 @@ footer div.footer_content div a:hover {
   top: 8px;
   line-height: 16px;
 }
-#content ul.banner li:hover aside {
+#content ul.banner li.prev,
+#content ul.banner li.next {
+  width: 70px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  color: #993333;
+  font-size: 20px;
+  background: #f8fbfc;
+  position: absolute;
+  top: 100px;
+  z-index: 999;
+  display: none;
+}
+#content ul.banner li.prev {
+  left: 0;
+  border-radius: 0 8px 8px 0;
+}
+#content ul.banner li.next {
+  right: 0;
+  border-radius: 8px 0 0 8px;
+}
+#content ul.banner li.prev:hover,
+#content ul.banner li.next:hover {
+  cursor: pointer;
+  background: #ecfce3;
+}
+#content ul.banner:hover li.prev,
+#content ul.banner:hover li.next {
   display: block;
 }
 #content .main {
@@ -513,55 +540,62 @@ footer div.footer_content div a:hover {
   background: #b20e00;
   color: white;
 }
-#content .main div.wrap div.featured {
-  width: 685px;
-  margin: 0 auto;
-}
-#content .main div.wrap div.featured h2 {
+#content .main div.wrap h2 {
   font-size: 18px;
   color: #666666;
   height: 52px;
   line-height: 62px;
   overflow: hidden;
 }
-#content .main div.wrap div.featured ul {
-  width: 665px;
-  height: 160px;
-  padding: 10px;
+#content .main div.wrap div.featured {
+  width: 685px;
+  height: 182px;
+  margin: 0 auto;
+  position: relative;
   border-radius: 10px;
   border: 1px solid #c0c0c0;
   box-shadow: 0 0 10px 3px #ccc;
-  position: relative;
   /*pre next*/
   /*pre next END*/
 }
-#content .main div.wrap div.featured ul li {
+#content .main div.wrap div.featured div.list_wrap {
+  width: 615px;
+  margin: 0 auto;
+  padding-top: 20px;
+  overflow: hidden;
+}
+#content .main div.wrap div.featured div.list_wrap ul {
+  height: 140px;
+  position: relative;
+  left: 0;
+}
+#content .main div.wrap div.featured div.list_wrap ul li {
   float: left;
   display: inline-block;
-  width: 150px;
+  width: 205px;
   height: 140px;
   text-align: center;
-  margin-left: 51px;
-  margin-top: 22px;
 }
-#content .main div.wrap div.featured ul li img {
+#content .main div.wrap div.featured div.list_wrap ul li img {
   border: 1px solid #ccc;
 }
-#content .main div.wrap div.featured ul li p {
+#content .main div.wrap div.featured div.list_wrap ul li p {
+  width: 145px;
+  margin: 0 auto;
   font-size: 12px;
   color: #660000;
 }
-#content .main div.wrap div.featured ul li.pre,
-#content .main div.wrap div.featured ul li.next {
+#content .main div.wrap div.featured a.prev,
+#content .main div.wrap div.featured a.next {
   position: absolute;
   width: 35px;
   height: 35px;
   background: #b2b2b2;
   text-align: center;
-  display: none;
+  top: 70px;
 }
-#content .main div.wrap div.featured ul li.pre span,
-#content .main div.wrap div.featured ul li.next span {
+#content .main div.wrap div.featured a.prev span,
+#content .main div.wrap div.featured a.next span {
   position: absolute;
   display: block;
   width: 0;
@@ -570,24 +604,23 @@ footer div.footer_content div a:hover {
   /*border:8px solid red;*/
   bottom: 8px;
 }
-#content .main div.wrap div.featured ul li.pre {
-  left: -51px;
-  top: 50px;
+#content .main div.wrap div.featured a.prev {
+  left: 0;
 }
-#content .main div.wrap div.featured ul li.pre span {
+#content .main div.wrap div.featured a.prev span {
   border-right: 8px solid #151515;
   left: 5px;
 }
-#content .main div.wrap div.featured ul li.next {
-  top: 50px;
-  left: 599px;
+#content .main div.wrap div.featured a.next {
+  right: -1px;
 }
-#content .main div.wrap div.featured ul li.next span {
+#content .main div.wrap div.featured a.next span {
   border-left: 8px solid #151515;
   left: 15px;
 }
-#content .main div.wrap div.featured ul:hover li.pre,
-#content .main div.wrap div.featured ul:hover li.next {
-  display: block;
+#content .main div.wrap div.featured a.prev:hover,
+#content .main div.wrap div.featured a.next:hover {
+  cursor: pointer;
+  background: #959db2;
 }
 /*content END*/
