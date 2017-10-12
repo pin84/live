@@ -1,6 +1,7 @@
-*{
+* {
   margin: 0;
   padding: 0;
+  font-family: '微软雅黑', sans-serif;
 }
 
 /*清除浮动*/
@@ -11,35 +12,149 @@
   clear: both;
 }
 
-header{
-  width: 1200px;
-  height: 100%;
-  margin: 20px auto;
-  background: #f1f1f1;
+body {
+  //background: lightblue;
+  margin-bottom: 100px;
+  background:#f1f1f1;
+}
+
+header,footer {
+  width: 960px;
+  height: 30px;
+  margin: 20px auto 0;
+  //background: #f1f1f1;
   position: relative;
-  .header_l{
+  .header_l {
     //float: left;
     display: inline-block;
     position: absolute;
-    height:0;
-    width:750px;
+    height: 0;
+    width: 600px;
     /*border-top:60px solid #e5c3b2;*/
-    border-bottom:30px solid #507180;
+    border-bottom: 30px solid #507180;
     //border-left:0px solid black;
-    border-right:30px solid transparent;
+    border-right: 30px solid transparent;
   }
-  .header_r{
+  .header_r {
     //float: right;
     display: inline-block;
     position: absolute;
-    height:0;
-    width:412px;
-    border-top:30px solid #c29f65;
+    height: 0;
+    width: 323px;
+    border-top: 30px solid #c29f65;
     //border-bottom:30px solid #e5c3b2;
-    border-left:30px solid transparent;
+    border-left: 30px solid transparent;
     //border-right:0 solid red;
-    right:0;
+    right: 0;
   }
+}
 
+article {
+  width: 960px;
+  margin: 0 auto;
+  z-index: -99;
+  div.content {
+    width: 910px;
+    position: relative;
+    left: 50px;
+    border-left: 2px solid #507180;
+    padding-top: 20px;
 
+    .info, .jobObjective, .self_evaluation,
+    .work, .education,.picture {
+      margin-left: 40px;
+      margin-bottom: 10px;
+    }
+    div.info {
+      .base, .contact, .portrait {
+        float: left;
+        margin-right: 20px;
+        font-size: 18px;
+        font-weight: 400;
+      }
+      .base {
+        width: 200px;
+      }
+      .contact {
+        width: 300px;
+      }
+    }
+    div.portrait {
+      width: 130px;
+      height: 160px;
+      //border-radius:  50%;
+      margin: -10px  20px -40px;
+      overflow: hidden;
+      img {
+        width: 130px;
+      }
+    }
+    div.work {
+      padding-right: 20px;
+      h4, h3, span {
+        margin-right: 30px;
+        display: inline-block;
+      }
+      div {
+        margin-bottom: 10px;
+      }
+    }
+    div.education {
+      div span {
+        margin-right: 40px;
+      }
+    }
+    div.picture{
+      height: 300px;
+    }
+  }
+}
+
+div.title {
+  width: 900px;
+  height: 30px;
+  //background: #f1f1f1;
+  border-bottom: 2px solid #507180;
+  position: relative;
+  left: -17px;
+  margin-bottom: 15px;
+  div.tip {
+    float: left;
+    height: 0;
+    width: 100px;
+    /*border-top:60px solid #e5c3b2;*/
+    border-bottom: 30px solid #507180;
+    //border-left:0px solid black;
+    border-right: 30px solid transparent;
+    font-size: 18px;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+  }
+  div.triangle {
+    height: 0;
+    width: 0;
+    border: 15px solid transparent;
+    border-right: 15px solid #485a64;
+    position: absolute;
+    top: 17px;
+    left: -15px;
+    z-index: -1;
+  }
+  div.parallelogram_1, div.parallelogram_2 {
+    display: inline-block;
+    width: 10px;
+    height: 30px;
+    //-webkit-transform: skew(40deg);
+    //-moz-transform: skew(40deg);
+    //-ms-transform: skew(40deg);
+    //-o-transform: skew(40deg);
+    transform: skew(45deg);
+    background: #507180;
+    margin-left: -10px;
+  }
+  div.parallelogram_2 {
+    margin-left: 0;
+    width: 20px;
+  }
 }

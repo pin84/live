@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: '微软雅黑', sans-serif;
 }
 /*清除浮动*/
 .clear:before,
@@ -10,28 +11,139 @@
   content: '';
   clear: both;
 }
-header {
-  width: 1200px;
-  height: 100%;
-  margin: 20px auto;
+body {
+  margin-bottom: 100px;
   background: #f1f1f1;
+}
+header,
+footer {
+  width: 960px;
+  height: 30px;
+  margin: 20px auto 0;
   position: relative;
 }
-header .header_l {
+header .header_l,
+footer .header_l {
   display: inline-block;
   position: absolute;
   height: 0;
-  width: 750px;
+  width: 600px;
   /*border-top:60px solid #e5c3b2;*/
   border-bottom: 30px solid #507180;
   border-right: 30px solid transparent;
 }
-header .header_r {
+header .header_r,
+footer .header_r {
   display: inline-block;
   position: absolute;
   height: 0;
-  width: 412px;
+  width: 323px;
   border-top: 30px solid #c29f65;
   border-left: 30px solid transparent;
   right: 0;
+}
+article {
+  width: 960px;
+  margin: 0 auto;
+  z-index: -99;
+}
+article div.content {
+  width: 910px;
+  position: relative;
+  left: 50px;
+  border-left: 2px solid #507180;
+  padding-top: 20px;
+}
+article div.content .info,
+article div.content .jobObjective,
+article div.content .self_evaluation,
+article div.content .work,
+article div.content .education,
+article div.content .picture {
+  margin-left: 40px;
+  margin-bottom: 10px;
+}
+article div.content div.info .base,
+article div.content div.info .contact,
+article div.content div.info .portrait {
+  float: left;
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: 400;
+}
+article div.content div.info .base {
+  width: 200px;
+}
+article div.content div.info .contact {
+  width: 300px;
+}
+article div.content div.portrait {
+  width: 130px;
+  height: 160px;
+  margin: -10px 20px -40px;
+  overflow: hidden;
+}
+article div.content div.portrait img {
+  width: 130px;
+}
+article div.content div.work {
+  padding-right: 20px;
+}
+article div.content div.work h4,
+article div.content div.work h3,
+article div.content div.work span {
+  margin-right: 30px;
+  display: inline-block;
+}
+article div.content div.work div {
+  margin-bottom: 10px;
+}
+article div.content div.education div span {
+  margin-right: 40px;
+}
+article div.content div.picture {
+  height: 300px;
+}
+div.title {
+  width: 900px;
+  height: 30px;
+  border-bottom: 2px solid #507180;
+  position: relative;
+  left: -17px;
+  margin-bottom: 15px;
+}
+div.title div.tip {
+  float: left;
+  height: 0;
+  width: 100px;
+  /*border-top:60px solid #e5c3b2;*/
+  border-bottom: 30px solid #507180;
+  border-right: 30px solid transparent;
+  font-size: 18px;
+  color: #fff;
+  line-height: 30px;
+  text-align: center;
+}
+div.title div.triangle {
+  height: 0;
+  width: 0;
+  border: 15px solid transparent;
+  border-right: 15px solid #485a64;
+  position: absolute;
+  top: 17px;
+  left: -15px;
+  z-index: -1;
+}
+div.title div.parallelogram_1,
+div.title div.parallelogram_2 {
+  display: inline-block;
+  width: 10px;
+  height: 30px;
+  transform: skew(45deg);
+  background: #507180;
+  margin-left: -10px;
+}
+div.title div.parallelogram_2 {
+  margin-left: 0;
+  width: 20px;
 }
