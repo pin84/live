@@ -101,8 +101,46 @@ article div.content div.work div {
 article div.content div.education div span {
   margin-right: 40px;
 }
-article div.content div.picture {
-  height: 300px;
+article div.content div.picture form {
+  width: 900px;
+  height: 500px;
+}
+article div.content div.picture form label {
+  display: block;
+  width: 300px;
+  height: 402px;
+  position: absolute;
+  transition: 1s;
+}
+article div.content div.picture form input {
+  display: none;
+}
+article div.content div.picture form input:checked ~ label {
+  -webkit-transform: translateX(228px);
+  -moz-transform: translateX(228px);
+  -ms-transform: translateX(228px);
+  -o-transform: translateX(228px);
+  transform: translateX(228px);
+}
+article div.content div.picture form label:nth-of-type(1) {
+  background: url("../img/IMG_0466.jpg");
+  left: 32px;
+}
+article div.content div.picture form label:nth-of-type(2) {
+  background: url("../img/IMG_0710.jpg");
+  left: 104px;
+}
+article div.content div.picture form label:nth-of-type(3) {
+  background: url("../img/IMG_0467.jpg");
+  left: 176px;
+}
+article div.content div.picture form label:nth-of-type(4) {
+  background: url("../img/135.jpg");
+  left: 248px;
+}
+article div.content div.picture form label:nth-of-type(5) {
+  background: url("../img/IMG_0731.jpg");
+  left: 320px;
 }
 div.title {
   width: 900px;
