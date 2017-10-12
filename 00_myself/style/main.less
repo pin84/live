@@ -18,6 +18,9 @@ body {
   background: #f1f1f1;
 }
 
+//a{
+//  text-decoration: none;
+//}
 header, footer {
   width: 960px;
   height: 30px;
@@ -79,6 +82,14 @@ article {
         width: 300px;
       }
     }
+    div.self_evaluation {
+      a {
+        color: #000;
+      }
+      a:hover {
+        color: #f54545;
+      }
+    }
     div.portrait {
       width: 130px;
       height: 160px;
@@ -118,7 +129,7 @@ article {
       input {
         display: none;
       }
-      input:checked~label{
+      input:checked ~ label {
         -webkit-transform: translateX(228px);
         -moz-transform: translateX(228px);
         -ms-transform: translateX(228px);

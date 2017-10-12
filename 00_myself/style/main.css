@@ -77,6 +77,12 @@ article div.content div.info .base {
 article div.content div.info .contact {
   width: 300px;
 }
+article div.content div.self_evaluation a {
+  color: #000;
+}
+article div.content div.self_evaluation a:hover {
+  color: #f54545;
+}
 article div.content div.portrait {
   width: 130px;
   height: 160px;
