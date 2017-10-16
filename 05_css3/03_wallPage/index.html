@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #5e5e5e;
+        }
+
+        #box {
+            width: 1200px;
+            height: 500px;
+            /*background: url(img/bg.png) no-repeat;*/
+            margin: 20px auto;
+            border: 2px solid red;
+        }
+
+        #wrap {
+            width: 700px;
+            height: 420px;
+            transform-style: preserve-3d;
+            perspective: 800px;
+            background: #f3dc94;
+            margin: 0 auto;
+        }
+
+        #wrap div {
+            width: 10px;
+            height: 420px;
+            background: url(img/01.jpg) no-repeat;
+            float: left;
+            transition: .5s;
+        }
+    </style>
+</head>
+<body>
+<!--原理。由js生成每个宽度为10px的小div然后使每个div依次变透明，并同时切换下一张图为背景-->
+<div id="box">
+    <div id="wrap">
+    </div>
+</div>
+<script>
+    let wrap = document.querySelector('#wrap');
+
+    let el = '';
+
+    for (let i = 0; i < wrap.offsetWidth / 10; i++) {
+        el += '<div style="background-position-x: ' + (-10 * i) + 'px"></div>'
+    }
+    wrap.innerHTML = el;
+
+    let divs = wrap.querySelectorAll('div');
+    let num = 0;
+    let timer;
+    let srcNum = 2;
+    go();
+
+    function go() {
+        timer = setInterval(function () {
+            console.log(1);
+            tab(num);
+            num++;
+            if (num === 71) {// 图片宽度为700px,每个div宽度为10px.总共有70个div
+                clearInterval(timer);
+                srcNum++;
+                if(srcNum === 6){
+                    srcNum = 1;
+                }
+                num = 0;
+                setTimeout(go,500)
+            }
+        }, 100);
+    }
+
+
+    function tab(n) {
+        if (divs[n - 1]) {
+            divs[n - 1].style.opacity = 1;
+        }
+        if (divs[n]) {
+            divs[n].style.opacity = 0;
+            divs[n].style.backgroundImage = 'url(img/0' + srcNum + '.jpg)'
+        }
+    }
+
+</script>
+</body>
+</html>

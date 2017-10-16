@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        div.language {
+            cursor: pointer;
+            width: 70px;
+            height: 20px;
+            display: inline-block;
+            margin-left: 100px;
+            /*border:1px solid red ;*/
+            /*background: #f3dc94;*/
+        }
+
+        /*.language .current::after {*/
+            /*content: "";*/
+            /*font-family: "FontAwesome";*/
+            /*font-size: 14px;*/
+            /*line-height: 1;*/
+            /*margin-left: 1px;*/
+            /*padding-left: 4px;*/
+            /*vertical-align: middle;*/
+        /*}*/
+
+        .current {
+            /*display: inline-block;*/
+            /*background: #ff5400;*/
+        }
+
+        .lang {
+            width: 100px;
+            text-align: left;
+            background: #f1f1f1;
+            opacity: 0;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            transform: scaleY(0);
+            transition: 0.3s;
+            /*transition: all 0.3s ease 0s;*/
+            transform-origin: 0 0;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        .language:hover .lang {
+            opacity: 1;
+            cursor: pointer;
+            transform: scaleY(1);
+        }
+
+        .lang li:hover a {
+            color: #f54545;
+        }
+    </style>
+</head>
+<body>
+
+<div class="language">
+    <div class="current">
+        <span>English</span>
+    </div>
+    <ul class="lang">
+        <li><a href="">China</a></li>
+        <li><a href="">Japan</a></li>
+        <li><a href="">Australia</a></li>
+    </ul>
+</div>
+<div class="language">
+    <div class="current">
+        <span>English</span>
+    </div>
+    <ul class="lang">
+        <li><a href="">China</a></li>
+        <li><a href="">Japan</a></li>
+        <li><a href="">Australia</a></li>
+    </ul>
+</div>
+</body>
+</html>

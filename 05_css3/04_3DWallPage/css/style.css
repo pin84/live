@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/*清除浮动*/
+.clear:before,
+.clear:after {
+  visibility: hidden;
+  display: block;
+  content: '';
+  clear: both;
+}
+/*最外层容器的样式*/
+div.photo_wall {
+  width: 100%;
+  height: 600px;
+  background: url("../img/bg.jpg") no-repeat center;
+  background-size: cover;
+  position: relative;
+  /*照片容器样式*/
+  /*导航区域的样式*/
+}
+div.photo_wall .photo {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  /*每一张照片的样式*/
+}
+div.photo_wall .photo .photo_i,
+div.photo_wall .photo .photo_3d,
+div.photo_wall .photo .photo_side {
+  width: 336px;
+  height: 392px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+div.photo_wall .photo .photo_i {
+  transition: 1s;
+  perspective: 750px;
+}
+div.photo_wall .photo .photo_3d {
+  transition: 800ms;
+  transform-style: preserve-3d;
+  transform-origin: 0;
+}
+div.photo_wall .photo .photo_3d .photo_front {
+  transform: rotateY(0deg);
+}
+div.photo_wall .photo .photo_3d .photo_front p {
+  width: 286px;
+  height: 286px;
+  border: 2px solid #d8536d;
+  text-align: center;
+}
+div.photo_wall .photo .photo_3d .photo_front p img {
+  height: 100%;
+}
+div.photo_wall .photo .photo_3d .photo_front h3 {
+  width: 166px;
+  height: 44px;
+  font: 16px/44px Arial;
+  color: #fff;
+  background: #d8356d;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 0 0 5px 5px;
+}
+div.photo_wall .photo .photo_3d .photo_back {
+  transform: rotateY(-180deg);
+}
+div.photo_wall .photo .photo_3d .photo_back p {
+  color: #d8356d;
+  font: 14px/22px Arial;
+}
+div.photo_wall .photo .photo_side {
+  background: #fff;
+  border-radius: 6px;
+  padding: 26px 24px;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+}
+div.photo_wall .nav {
+  width: 100%;
+  height: 190px;
+  padding-top: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), transparent);
+  text-align: center;
+}
+div.photo_wall .nav span.nav_i {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transform: scale(0.5);
+}
+/*照片正面对应的class*/
+.photo .front .photo_3d {
+  transform: translateX(0) rotateY(0deg);
+}
+/*照片背面对应的class*/
+.photo .back .photo_3d {
+  transform: translateX(100%) rotateY(-180deg);
+}
+/*让照片居中的class*/
+div.photo_wall .photo .center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
