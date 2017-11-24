@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Title</title>
+    <style>
+        body, html {
+            margin: 0;
+            height: 100%;
+        }
+
+        #canvas {
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            left: 10%;
+            top: 5%;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script src="utils.js"></script>
+<script src="Ball.js"></script>
+<script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    let W = canvas.width = 800;
+    let H = canvas.height = 600;
+
+    const ball = new Ball({
+        x: 100,
+        y: H / 2,
+        r: 30
+    }).render(ctx);
+
+    let angle =0;
+    let vx = 1;
+
+    let vy = 0.5;
+    const SWING = 60;
+
+
+    (function move() {
+        window.requestAnimationFrame(move);
+
+        ctx.clearRect(0,0,W,H);
+
+        ball.x += vx;
+
+        ball.y = H/2 +Math.sin(angle) * SWING;
+
+        angle += 0.05;
+        angle %= Math.PI * 2;
+
+
+        ball.render(ctx);
+    })();
+
+</script>
+</body>
+</html>

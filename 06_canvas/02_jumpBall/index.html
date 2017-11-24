@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>燥动的小球</title>
+    <style>
+        #myCanvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<canvas id="myCanvas" height="500" width="500"></canvas>
+</body>
+
+<script>
+    const myCanvas = document.querySelector('#myCanvas');
+    const ctx = myCanvas.getContext('2d');
+
+    let rand = (min, max) => parseInt(Math.random() * (max - min) + min);
+
+    const canvasWidth = myCanvas.width;
+    const canvasHeight = myCanvas.height;
+
+    class Ball {
+        constructor(ctx, canvasWidth, canvasHeight) {
+            this.ctx = ctx;
+            this.color = `rgb(${rand(1, 256)},${rand(1, 256)},${rand(1, 256)})`
+            let r = rand(5, 20);
+            this.r = r;
+            //坐标
+            this.x = rand(r, canvasWidth - r);
+            this.y = rand(r, canvasHeight - r);
+
+            //可移动的最大距离
+            this.maxWidth = canvasWidth - r;
+            this.maxHeight = canvasHeight - r;
+
+            //速度
+            let speedX = rand(2, 6);
+            this.speedX = rand(0, 2) > 0 ? speedX : -speedX;
+            let speedY = rand(2, 6);
+            this.speedY = rand(0, 2) > 0 ? speedY : -speedY;
+        }
+
+        draw() {
+            this.ctx.beginPath();
+            this.ctx.fillStyle = this.color;
+            this.ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2, true);
+            this.ctx.closePath();
+            this.ctx.fill();
+        }
+
+        move() {
+            this.x += this.speedX;
+            if (this.x >= this.maxWidth) {
+                this.speedX *= -1;
+            } else if (this.x < this.r) {
+                this.speedX *= -1
+            }
+            this.y += this.speedY;
+            if (this.y >= this.maxHeight) {
+                this.speedY *= -1;
+            } else if (this.y < this.r) {
+                this.speedY *= -1;
+            }
+        }
+    }
+
+    /* //绘制一个小球
+     const ball1 = new Ball(ctx, canvasWidth, canvasHeight);
+     ball1.draw();*/
+
+    /*  //绘制100个小球
+     let balls = [];
+     for (let i = 0; i < 100; i++) {
+     let ball = new Ball(ctx, canvasWidth, canvasHeight);
+     balls.push(ball);
+     }
+     for (let i = 0; i < 100; i++) {
+     balls[i].draw();
+     }*/
+
+    //绘制100个跳动的小球
+    let balls = [];
+    for (let i = 0; i < 100; i++) {
+        let ball = new Ball(ctx, canvasWidth, canvasHeight);
+        jumpBalls.push(ball);
+    }
+
+    setInterval(function () {
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        for (let i = 0; i < jumpBalls.length; i++) {
+            jumpBalls[i].draw();
+            jumpBalls[i].move();
+        }
+    }, 100);
+
+
+</script>
+</html>
