@@ -1,22 +1,14 @@
-# VSCode
-.vscode/
-jsconfig.json
-
-# IntelliJ/Webstorm
-.idea
-
-# NodeJS
-npm-debug.log
-node_modules
-lib-rn
-lib
-yarn-error.log
-
-# OS X
 .DS_Store
+node_modules/
+/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Exponent
-.exponent
-
-# Jest
-coverage
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
