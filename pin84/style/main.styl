@@ -1,0 +1,204 @@
+body
+  font-size: 1.6rem;
+  line-height: 1.5;
+  background-color: #f7f7f7;
+  font-family: 'Microsoft Yahei'
+  margin-bottom 5rem
+
+header
+  position relative
+  width 100%
+  display flex
+  .top
+    width 90%
+    min-width 96rem
+    height 3rem
+    margin 2rem auto 0
+    display flex
+    justify-content center
+    .top_left
+      height: 0;
+      width: 60%;
+      border-bottom: 30px solid #507180
+      border-right: 30px solid transparent
+    .top_right
+      height: 0;
+      width: 40%;
+      border-top: 30px solid #c29f65;
+      border-left: 30px solid transparent;
+article
+  width 100%
+  .content
+    width 80%
+    min-width 90rem
+    margin 0 auto
+    box-sizing: border-box
+    padding-top 3rem
+    padding-left 3rem
+    border-left 2px solid #507180
+    .info
+      display flex
+      margin-bottom 1rem
+      .base, .contact, .jobObjective
+        position relative
+        display: flex
+        flex-direction column
+      .contact
+         padding 0 4rem
+      .avatar
+        position absolute
+        border 1px solid red
+        width 13rem
+        height 16rem
+        overflow hidden
+        right 10rem
+        img
+          width 100%
+
+    .work
+      display flex
+      flex-direction column
+      margin-top -1rem
+      margin-bottom 1rem
+      .company
+        display flex
+        flex-direction: row
+        margin-bottom -2rem
+        .company_name
+          padding 0 2rem
+        span
+          line-height: 6.5rem
+    .education
+      width 100%
+      div
+        display flex
+        line-height: 0.5rem
+        span
+          line-height 5rem
+        .school_name
+          margin-left 3rem
+          margin-right 3rem
+    .picture
+      position relative
+      width 100%
+      height: 45rem
+      position relative
+      // border 1px solid red
+      label
+        display block
+        width 30rem
+        height 40.2rem
+        position absolute
+        transition 1s
+      input
+        display none
+        &:checked ~ label
+          transform: translateX(228px)
+      label:nth-of-type(1) {
+        background: url("../img/IMG_0466.jpg");
+        // left: 0;
+      }
+      label:nth-of-type(2) {
+        background: url("../img/IMG_0710.jpg");
+        left: 7rem
+      }
+      label:nth-of-type(3) {
+        background: url("../img/IMG_0467.jpg");
+        left: 14rem
+      }
+      label:nth-of-type(4) {
+        background: url("../img/135.jpg");
+        left: 21.2rem
+      }
+      label:nth-of-type(5) {
+        background: url("../img/IMG_0731.jpg");
+        left: 28rem;
+      }
+
+//播放器
+.music
+  position fixed
+  bottom 0
+  right 5rem
+  width 4.4rem
+  height 4.4rem
+  overflow hidden
+  background url(../img/music_on.png) no-repeat center
+  transition all 1s linear
+  &:hover
+    cursor pointer
+
+.toolbar
+  position fixed
+  right 0
+  bottom 0
+  .weixin, .totop
+    position relative
+    display block
+    padding 6px
+    width 32px
+    height 32px
+    border-bottom 2px solid #fff
+  & .weixin
+      margin-bottom 5px
+      background url(../img/WEIXIN.png) no-repeat center
+      &:hover
+        .toolbar-layer
+          opacity 1
+          transform scale(1)
+      .toolbar-layer
+        position absolute
+        display block
+        width 150px
+        height 167px
+        opacity 0
+        transform-origin 95% 95%
+        transform scale(0.01)
+        right 50px
+        bottom 0
+        background url(../img/QR1.png) no-repeat center
+        transition all 1s
+  & .totop
+      background url(../img/to-top.png) no-repeat center
+      transition all 1s
+      &:hover
+        transform rotate(360deg)
+
+div.title
+  width 90rem
+  height 3rem
+  border-bottom: 2px solid #507180
+  position: relative
+  left: -4.7rem //有3rem是容器的padding
+  margin-bottom: 15px
+  display flex
+  .tip
+    height: 0;
+    width: 100px;
+    /*border-top:60px solid #e5c3b2;*/
+    border-bottom: 30px solid #507180;
+    //border-left:0px solid black;
+    border-right: 30px solid transparent;
+    font-size: 1.8rem;
+    color: #fff;
+    line-height: 3rem;
+    text-align: center;
+  .parallelogram_1, div.parallelogram_2
+    // display: inline-block;
+    width: 1rem;
+    height: 3rem;
+    transform: skew(45deg);
+    background: #507180;
+    // margin-left: -1rem;
+    &.parallelogram_2
+      margin-left: 1rem;
+      width: 2rem;
+  .triangle
+    height: 0;
+    width: 0;
+    border: 15px solid transparent;
+    border-right: 15px solid #485a64;
+    position: absolute;
+    top: 17px;
+    left: -15px;
+    z-index: -1;

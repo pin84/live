@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>海草飘</title>
+  <link rel="stylesheet" href="../common/style/normalize.css">
+  <link rel="stylesheet" href="../common/style/util.css">
+  <style>
+    html {
+      font-size: 1.4rem;
+      line-height: 1.5rem;
+      color: green
+    }
+    .flotage span{
+      position:relative
+    }
+  </style>
+</head>
+
+<body>
+  <div class="flotage">
+    <p>♣♣♣♣♣♣♣♣♣</p>
+
+  </div>
+  <script>
+    /**
+      1、内容初始化
+      2、整理单元、
+          创建span标签
+          给每个span对象 设置内容
+      3、排列的方法：每一个span在鼠标运动的最低点，根据路径队列找到
+          自己的位置，并且==跑==过去
+        移动的方法，队列的更新
+        归队的方法，重新站好
+    */
+    let pos = {} //鼠标位置
+
+    class Flotage {
+      constructor(ele) {
+        this.init(ele)
+      }
+      init(ele) {
+        //DOM节点
+        this.ele = ele || document.querySelector('p')
+        //分片文本
+        this.units = this.ele.innerText.split('')
+        //分片数组的长度
+        this.len = this.units.length
+        //单元路径 长度=分片文本数组的长度
+        this.path = new Array(this.len).fill({ x: 0, y: 0 })
+        this.ele.innerText = ''
+      }
+
+      format() {
+        let fragment = document.createDocumentFragment()
+        this.units = this.units.map((item) => {
+          let oSpan = document.createElement('span')
+          oSpan.innerText = item
+          fragment.appendChild(oSpan)
+          return oSpan
+        })
+        this.ele.appendChild(fragment)
+      }
+      //排列 操作DOM
+      queue() {
+        // for(let i = 0;i < this.units.length; i++){
+        //   this.units[i].style.top = this.path[this.len-1]
+        // }
+
+        for (var i = 0, item; item = this.units[i++];) { //
+          item.style.top = this.path[this.len - i].y + 'px'
+          item.style.left = this.path[this.len - i].x + 'px'
+        }
+      }
+
+      move(pos) {
+        this.path.push(pos);
+        (this.path.length > this.len) && (this.path.shift());
+        this.queue()
+      }
+
+    }
+
+    let flotage = new Flotage()
+
+    flotage.format()
+
+    document.addEventListener('mousemove', (e) => {
+      pos = {
+        x: e.clientX,
+        y: e.clientY
+      }
+      flotage.move(pos)
+
+    })
+
+  </script>
+</body>
+
+</html>

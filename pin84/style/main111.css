@@ -1,6 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
+body {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  background-color: #f7f7f7;
   font-family: '微软雅黑', sans-serif;
 }
 /*清除浮动*/

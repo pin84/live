@@ -2,38 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <title>鼠标拖拽图片</title>
+    <link rel="stylesheet" href="../../common/style/normalize.css">
+    <link rel="stylesheet" href="../../common/style/util.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        .header {
-            display: flex;
-        }
-
-        .header a {
-            display: block;
-            width: 100px;
-            height: 25px;
-            margin-top: 40px;
-            margin-left: 30px;
-        }
-
-        .box {
-            position: absolute;
-            border-radius: 50%;
-            width: 200px;
-            height: 200px;
-            background: lawngreen;
-            overflow: hidden;
-        }
-
-
-
-
+      html{
+        font-size: 1rem
+      }
+      .box{
+        width: 90%;
+        height: 30rem;
+        border: 1px solid #eee;
+        margin: 0 auto;
+        position: relative;
+      }
+      /* .box ul{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      } */
+      .box ul li{
+        /* position: absolute; */
+        float: left;
+        /* left: 3rem */
+      }
+      .box ul li img{
+        margin: 1rem;
+        width: 14rem;
+        height: 15rem;
+      }
     </style>
 </head>
 <body>
@@ -44,10 +42,21 @@
 </div>
 <hr>
 <div class="box">
-    <!--<img src="../../images/fullPage/page2_1.png">-->
+    <ul>
+      <li><img src="../../common/img/1.png"></li>
+      <li><img src="../../common/img/2.png"></li>
+      <!-- <li><img src="../../common/img/8.png"></li> -->
+      <li><img src="../../common/img/4.png"></li>
+      <li><img src="../../common/img/5.png"></li>
+      <li><img src="../../common/img/6.png"></li>
+      <li><img src="../../common/img/7.png"></li>
+      <li><img src="../../common/img/8.png"></li>
+      <li><img src="../../common/img/9.png"></li>
+    </ul>
 </div>
 </body>
-<script>
+<script src="../../common/js/mouseDrag.js"></script>
+<!-- <script>
     function drag(obj) {
         obj.bind("mousedown", start);
 
@@ -79,5 +88,5 @@
 
     obj = $(".box");
     drag(obj);
-</script>
+</script> -->
 </html>

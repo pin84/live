@@ -1,0 +1,235 @@
+body {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  background-color: #f7f7f7;
+  font-family: 'Microsoft Yahei';
+  margin-bottom: 5rem;
+}
+header {
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+header .top {
+  width: 90%;
+  min-width: 96rem;
+  height: 3rem;
+  margin: 2rem auto 0;
+  display: flex;
+  justify-content: center;
+}
+header .top .top_left {
+  height: 0;
+  width: 60%;
+  border-bottom: 30px solid #507180;
+  border-right: 30px solid transparent;
+}
+header .top .top_right {
+  height: 0;
+  width: 40%;
+  border-top: 30px solid #c29f65;
+  border-left: 30px solid transparent;
+}
+article {
+  width: 100%;
+}
+article .content {
+  width: 80%;
+  min-width: 90rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  border-left: 2px solid #507180;
+}
+article .content .info {
+  display: flex;
+  margin-bottom: 1rem;
+}
+article .content .info .base,
+article .content .info .contact,
+article .content .info .jobObjective {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+article .content .info .contact {
+  padding: 0 4rem;
+}
+article .content .info .avatar {
+  position: absolute;
+  border: 1px solid #f00;
+  width: 13rem;
+  height: 16rem;
+  overflow: hidden;
+  right: 10rem;
+}
+article .content .info .avatar img {
+  width: 100%;
+}
+article .content .work {
+  display: flex;
+  flex-direction: column;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+article .content .work .company {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: -2rem;
+}
+article .content .work .company .company_name {
+  padding: 0 2rem;
+}
+article .content .work .company span {
+  line-height: 6.5rem;
+}
+article .content .education {
+  width: 100%;
+}
+article .content .education div {
+  display: flex;
+  line-height: 0.5rem;
+}
+article .content .education div span {
+  line-height: 5rem;
+}
+article .content .education div .school_name {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+article .content .picture {
+  position: relative;
+  width: 100%;
+  height: 45rem;
+  position: relative;
+}
+article .content .picture label {
+  display: block;
+  width: 30rem;
+  height: 40.2rem;
+  position: absolute;
+  transition: 1s;
+}
+article .content .picture input {
+  display: none;
+}
+article .content .picture input:checked ~ label {
+  transform: translateX(228px);
+}
+article .content .picture label:nth-of-type(1) {
+  background: url("../img/IMG_0466.jpg");
+}
+article .content .picture label:nth-of-type(2) {
+  background: url("../img/IMG_0710.jpg");
+  left: 7rem;
+}
+article .content .picture label:nth-of-type(3) {
+  background: url("../img/IMG_0467.jpg");
+  left: 14rem;
+}
+article .content .picture label:nth-of-type(4) {
+  background: url("../img/135.jpg");
+  left: 21.2rem;
+}
+article .content .picture label:nth-of-type(5) {
+  background: url("../img/IMG_0731.jpg");
+  left: 28rem;
+}
+.music {
+  position: fixed;
+  bottom: 0;
+  right: 5rem;
+  width: 4.4rem;
+  height: 4.4rem;
+  overflow: hidden;
+  background: url("../img/music_on.png") no-repeat center;
+  transition: all 1s linear;
+}
+.music:hover {
+  cursor: pointer;
+}
+.toolbar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+.toolbar .weixin,
+.toolbar .totop {
+  position: relative;
+  display: block;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  border-bottom: 2px solid #fff;
+}
+.toolbar .weixin {
+  margin-bottom: 5px;
+  background: url("../img/WEIXIN.png") no-repeat center;
+}
+.toolbar .weixin:hover .toolbar-layer {
+  opacity: 1;
+  transform: scale(1);
+}
+.toolbar .weixin .toolbar-layer {
+  position: absolute;
+  display: block;
+  width: 150px;
+  height: 167px;
+  opacity: 0;
+  transform-origin: 95% 95%;
+  transform: scale(0.01);
+  right: 50px;
+  bottom: 0;
+  background: url("../img/QR1.png") no-repeat center;
+  transition: all 1s;
+}
+.toolbar .totop {
+  background: url("../img/to-top.png") no-repeat center;
+  transition: all 1s;
+}
+.toolbar .totop:hover {
+  transform: rotate(360deg);
+}
+div.title {
+  width: 90rem;
+  height: 3rem;
+  border-bottom: 2px solid #507180;
+  position: relative;
+  left: -4.7rem;
+  margin-bottom: 15px;
+  display: flex;
+}
+div.title .tip {
+  height: 0;
+  width: 100px;
+/*border-top:60px solid #e5c3b2;*/
+  border-bottom: 30px solid #507180;
+  border-right: 30px solid transparent;
+  font-size: 1.8rem;
+  color: #fff;
+  line-height: 3rem;
+  text-align: center;
+}
+div.title .parallelogram_1,
+div.title div.parallelogram_2 {
+  width: 1rem;
+  height: 3rem;
+  transform: skew(45deg);
+  background: #507180;
+}
+div.title .parallelogram_1.parallelogram_2,
+div.title div.parallelogram_2.parallelogram_2 {
+  margin-left: 1rem;
+  width: 2rem;
+}
+div.title .triangle {
+  height: 0;
+  width: 0;
+  border: 15px solid transparent;
+  border-right: 15px solid #485a64;
+  position: absolute;
+  top: 17px;
+  left: -15px;
+  z-index: -1;
+}
