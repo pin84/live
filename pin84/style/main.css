@@ -165,7 +165,7 @@ article .content .picture label:nth-of-type(5) {
 }
 .toolbar .weixin {
   margin-bottom: 5px;
-  background: url("../img/winxin.png") no-repeat center;
+  background: url("../img/to-top.png") no-repeat center;
 }
 .toolbar .weixin:hover .toolbar-layer {
   opacity: 1;
