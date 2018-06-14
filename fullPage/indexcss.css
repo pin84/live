@@ -1,0 +1,168 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#audiobox {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: 5%;
+    right: 3%;
+    background: url("../common/fullPage/music_on.png") no-repeat center;
+    cursor: pointer;
+}
+
+.section {
+    overflow: hidden;
+}
+
+/*第一页*/
+.page1 img {
+    width: 50%;
+    margin-left: 10%;
+}
+
+/*所有页的图片list,距离左侧的距离*/
+[class*='page'] .list {
+    margin-left: 5%;
+}
+
+/*所有列表页面的图片大小*/
+[class*='page'] .list img {
+    width: 240px;
+}
+
+/*所有页面的背景图片*/
+[class*='page'] .bg {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: 30%;
+}
+
+/*所有页面的文字图片*/
+[class*='page'] .text {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+
+/*
+    第一页的动画
+    核心思路:通过opacity 属性和 transition 配合实现。opacity(透明度) transition
+    是检测某一属性的变化
+*/
+.page1 img {
+    opacity: 0; /*初始状态，隐藏*/
+    transition: opacity 1s 0.5s; /*在一秒内完成，延迟0.5秒*/
+}
+
+/*当第一页要显示的时候触发动画效果,怎么知道第一页要显示呢*/
+.page1.active img {
+    opacity: 1;
+}
+
+/*第二页效果：从下往上对齐
+    核心思路：通过transform:translaterY() 和 transtion 配合实现
+    transtion:检测属性变化
+    translateY() : 平移
+*/
+.page2 .list img {
+    transition: 1s;
+    /*先让图片都跟到页面下方 1000px处*/
+    transform: translateY(1000px);
+}
+
+/*设置每张图片延迟的时间*/
+.page2 .list img:nth-child(1) {
+    transition-delay: 0.5s;
+}
+
+.page2 .list img:nth-child(2) {
+    transition-delay: 0.7s;
+}
+
+.page2 .list img:nth-child(3) {
+    transition-delay: 0.9s;
+}
+
+/*检测第二面触发*/
+.page2.active .list img {
+    transform: translateY(0);
+}
+
+/*第三页的动画效果*/
+.page3 .list img {
+    transition: 1s 0.5s;
+}
+
+/*让后两张图片和第一张重叠*/
+.page3 .list img:nth-child(2) {
+    transform: translateX(-250px); /*每张图片240PX + 10px margin*/
+}
+
+.page3 .list img:nth-child(3) {
+    transform: translateX(-500px);
+}
+
+/*当第三页触发时，就让所有的图片老归位*/
+.page3.active .list img {
+    transform: translateX(0);
+}
+
+/*第四页的动画效果*/
+
+.page4.active .list img:nth-child(1) {
+
+    animation: mymove1 2s 1;
+}
+
+.page4.active .list img:nth-child(2) {
+
+    animation: mymove2 2s 1;
+}
+
+.page4.active .list img:nth-child(3) {
+
+    animation: mymove3 2s 1;
+}
+
+@keyframes mymove1 {
+    0% {
+        transform: translate(250px, -500px);
+    }
+    50% {
+        transform: translate(250px, 0px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes mymove2 {
+    0% {
+        transform: translate(0px, -500px);
+    }
+    50% {
+        transform: translate(0px, 0px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes mymove3 {
+    0% {
+        transform: translate(-250px, -500px);
+    }
+    50% {
+        transform: translate(-250px, 0px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
