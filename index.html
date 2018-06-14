@@ -2,77 +2,56 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        /*标签 reset*/
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./common/style/normalize.css">
+  <link rel="stylesheet" href="./common/style/util.css">
+  <style>
+    html {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      font-family: 'Microsoft Yahei';
+      background: #999
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            font-family: "微软雅黑", serif;
-        }
+    a {
+      text-decoration: none;
+      margin-left: 1rem;
+      color: black;
+    }
 
-        li {
-            list-style: none;
-        }
+    a:hover {
+      color: cadetblue
+    }
 
-        img {
-            border: none;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        .clear:before,
-        .clear:after {
-            visibility: hidden;
-            display: block;
-            content: '';
-            clear: both;
-        }
-
-        body {
-            background: #0d2f47;
-        }
-
-        div.main {
-            width: 1160px;
-            height: 600px;
-            margin: 0 auto;
-            background: #797979;
-            padding: 20px;
-        }
-
-        div a {
-            color: white;
-            font-size: 18px;
-            margin-left: 40px;
-        }
-
-        div a:hover {
-            color: #f54545;
-        }
-    </style>
+    .main {
+      width: 80%;
+      background: #eee;
+      margin: 2rem auto;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="main">
-        <a href="https://pin84.github.io/live/pin84">我的简历</a>
-        <a href="https://pin84.github.io/live/01_miaovWeb">01_miaovWeb</a>
-        <a href="https://pin84.github.io/live/02_yiling">02_yiling</a>
-        <a href="https://pin84.github.io/live/03_weimeiyige">03_weimeiyige</a>
-        <a href="https://pin84.github.io/live/04_100du">04_100du</a>
-        <a href="https://pin84.github.io/live/05_css3/01_folding">扇子</a>
-        <a href="https://pin84.github.io/live/05_css3/02_showPage">3D轮播</a>
-        <a href="https://pin84.github.io/live/05_css3/03_wallPage">墙纸</a>
-        <a href="https://pin84.github.io/live/06_canvas/01_ball">下落的小球</a>
-        <a href="https://pin84.github.io/live/06_canvas/02_jumpBall">跳动的小球</a>
-        <a href="https://pin84.github.io/live/fullpage">fullPage</a>
-        <a href="https://pin84.github.io/live/danmu">弹幕发射</a>
-    </div>
+  <div class="main">
+    <a href="https://pin84.github.io/live/pin84">我的简历</a>
+    <a href="https://pin84.github.io/live/01_miaovWeb">01_miaovWeb</a>
+    <a href="https://pin84.github.io/live/02_yiling">02_yiling</a>
+    <a href="https://pin84.github.io/live/03_weimeiyige">03_weimeiyige</a>
+    <a href="https://pin84.github.io/live/04_100du">04_100du</a>
+    <a href="https://pin84.github.io/live/05_css3/01_folding">扇子</a>
+    <a href="https://pin84.github.io/live/05_css3/02_showPage">3D轮播</a>
+    <a href="https://pin84.github.io/live/05_css3/03_wallPage">墙纸</a>
+    <a href="https://pin84.github.io/live/06_canvas/01_ball">下落的小球</a>
+    <a href="https://pin84.github.io/live/06_canvas/02_jumpBall">跳动的小球</a>
+    <a href="https://pin84.github.io/live/fullPage">fullPage</a>
+    <a href="https://pin84.github.io/live/danmu">弹幕发射</a>
+  </div>
+  <div style="position: absolute;bottom: 0; "><img src="./common/img/index_bg.jpg" style="width:100%;min-width: 60rem;"></div>
 </body>
 
 </html>
