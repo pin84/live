@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>danmu</title>
+    <link href="./danmu.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="header">
+    <h2>模仿弹幕网站发送弹幕</h2>
+    <a href="https://pin84.github.io/live">返回主页</a>
+    <a href="https://github.com/pin84/">返回我的仓库</a>
+</div>
+<hr>
+<div class="boxDom" id="boxDom">
+    <div class="idDom" id="idDom">
+        <div class="content">
+            <p class="title">说点什么：</p>
+            <input type="text" class="text" id="text">
+            <button type="button" class="btn" id="btn">发射</button>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        var boxDom = $("#boxDom");
+        var top;
+        //获取页面的宽和高
+        var pageWidth = parseInt($(document).width());
+        var pageHeight = parseInt($(document).height());
+
+        //点击按钮
+        $("#btn").bind("click", auto);//给按钮绑定方法
+        //按下回车
+        document.onkeydown = function () {
+            if (event.keyCode == 13) {
+                auto();
+            }
+        };
+
+
+        function auto() {
+
+            //1.获取输入的内容
+            var str = $("#text").val();
+            //2、生成一个元素
+            var crespan = $("<span class='string'></span>");
+
+            //给生成的元素进行赋值
+            crespan.text(str);
+            //清空刚刚输入的内容
+            $("#text").val("");
+
+            //是否需要指定位置？生成元素的位置要是一个随机的位置
+            top = Math.floor(Math.random() * pageHeight);//高度*随机数 就是生成一个0 - 高度的数
+            crespan.css({"top": top, "right": -400, "color": getRandomColor()});
+
+            //2.1 生成后就能显示在页面上面么？
+            boxDom.append(crespan);
+            //3、设置元素的动画效果 自定义的动画方法：animate(css样式值，时间，执行完动画调用的方法)
+            //页面上有N个span 你到底想让谁动起来，（最后一个）
+            var spandom = $("#boxDom>span:last-child");//找到最后一个span
+            spandom.animate({"right": pageWidth + 300}, 10000, function () {
+                //4、移除元素
+                $(this).remove();
+
+            });
+
+
+        }
+
+        //定义一个随机生成颜色的方法
+        function getRandomColor() {
+            var color = "";
+            var arr = ['a', 'b', 'c', 'd', 'e', 'f', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+            for (var i = 0; i < 6; i++) {
+                color += arr[Math.floor(Math.random() * 15)];//随机生成下标，
+            }
+            return "#" + color;
+        }
+    })
+
+</script>
+</html>
