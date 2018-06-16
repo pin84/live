@@ -6,10 +6,12 @@ html {
   background-color: #b3d4fc;
   text-shadow: none;
 }
-ul {
+
+ul,p,h1{
   margin: 0;
   padding: 0;
 }
+
 li {
   list-style: none;
 }
