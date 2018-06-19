@@ -1,55 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../common/style/normalize.css">
+  <link rel="stylesheet" href="../../common/style/util.css">
+  <style>
+    body {
+      font-size: 1.2rem
+    }
+
+    .container {
+      position: relative;
+      width: 40rem;
+      height: 60rem;
+      margin: 1rem auto;
+      box-sizing: border-box;
+      padding-top: 10rem;
+      overflow: hidden;
+    }
+
+    .swiper {
+      width:40rem;
+      height: 37.5rem;
+    }
+
+    ul {
+      /* width: 100%; */
+      width: 200rem;
+      height:37.5rem;
+      /* display: flex; */
+      /* justify-content: center; */
+      transform: translateZ(0);
+      border: 1px solid red;
+    }
+
+    li {
+      float: left;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40rem;
+      height: 37.5rem;
+      box-sizing: border-box;
+      border-radius:5px;
+    }
+
+    img {
+      width: 20rem;
+      /* height:80%; */
+      border-radius:5px;
+    }
+
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* background:url(../../common/img/imgCartoon/1.jpg) */
+    }
+
+    .bg img {
+      width: 100%;
+      height: 100%;
+      filter:blur(4px);
+    }
+  </style>
 </head>
+
 <body>
-<!-- slider-start -->
-<div class="slider-container">
-    <div class="slider">
-        <!-- Slider Image -->
-        <div id="mainslider" class="nivoSlider slider-image">
-            <img src="img/42.jpg" alt="main slider" title="#htmlcaption1" />
-            <img src="img/41.jpg" alt="main slider" title="#htmlcaption2" />
-        </div>
-        <!-- Slider Caption 1 -->
-        <div id="htmlcaption1" class="nivo-html-caption slider-caption-1">
-            <div class="slider-progress"></div>
-            <div class="slide1-text slide-1 hidden-xs">
-                <div class="middle-text">
-                    <div class="cap-dec wow bounceInLeft" data-wow-duration="0.9s" data-wow-delay="0s">
-                        <h1>The Best Fashion</h1>
-                    </div>
-                    <div class="cap-title wow bounceInRight" data-wow-duration="1.2s" data-wow-delay="0.2s">
-                        <h3>Save Your Time and Money</h3>
-                    </div>
-                    <div class="cap-readmore wow bounceInUp" data-wow-duration="1.3s" data-wow-delay=".5s">
-                        <a href="#">Shop Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Slider Caption 2 -->
-        <div id="htmlcaption2" class="nivo-html-caption slider-caption-2">
-            <div class="slider-progress"></div>
-            <div class="slide1-text slide-2 hidden-xs">
-                <div class="middle-text">
-                    <div class="cap-dec wow bounceInLeft" data-wow-duration="0.9s" data-wow-delay="0s">
-                        <h1>The Best Fashion</h1>
-                    </div>
-                    <div class="cap-title wow bounceInRight" data-wow-duration="1.2s" data-wow-delay="0.2s">
-                        <h3>Save Your Time and Money</h3>
-                    </div>
-                    <div class="cap-readmore wow bounceInUp" data-wow-duration="1.3s" data-wow-delay=".5s">
-                        <a href="#">Shop Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <div class="swiper">
+      <div class="bg">
+        <img src="../../common/img/imgCartoon/1.jpg">
+      </div>
+      <ul class='list'>
+        <li><img src="../../common/img/imgCartoon/1.jpg" ></li>
+        <li><img src="../../common/img/imgCartoon/3.jpg" ></li>
+        <li><img src="../../common/img/imgCartoon/4.jpg" ></li>
+      </ul>
     </div>
-</div>
-<!-- slider-end -->
+  </div>
+
+  <script src="mySwiper.1.js"></script>
 </body>
+
 </html>

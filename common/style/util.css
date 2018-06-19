@@ -1,19 +1,24 @@
 html {
   font-size: 62.5%;
   color: #222;
+  font-family: 'Microsoft Yahei';
 }
 ::selection {
   background-color: #b3d4fc;
   text-shadow: none;
 }
 
-ul,p,h1{
+body,ul,p,h1{
   margin: 0;
   padding: 0;
 }
 
 li {
   list-style: none;
+}
+/*把img变成块元素，使img和文字连接时不会出来空白*/
+img{
+  display: block;
 }
 
 /*============

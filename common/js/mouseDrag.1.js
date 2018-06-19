@@ -59,6 +59,8 @@ function drag(obj) {
       if(oLi){
         oLi.style.border = '1px solid red'
       }
+
+
     }
     document.onmouseup = function () {
       document.onmousemove = null
