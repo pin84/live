@@ -1,0 +1,40 @@
+body
+	font-size 1.2rem
+	background black
+	
+
+#wrap
+	perspective 800px //1、开启景深
+	.sence
+		position relative
+		width 20rem	
+		height 30rem
+		// border 1px solid red
+		margin 10rem auto
+		transform-style preserve-3d //2、子元素保留3d
+		transform rotateX(-15deg) rotateY(0deg)
+		ul
+			li
+				position absolute
+				transform rotateY(0deg) translateZ(0px)
+				transition 1s
+				img
+					width 20rem	
+					float left
+					box-shadow 0 0 8px #f9f
+					border-radius 5px
+					// 不能换行，-webkit-linear-gradient 是-webkit-box-reflect 的一个参数
+					/*方位 间隔 渐变色*/
+					-webkit-box-reflect below 5px -webkit-linear-gradient(top,rgba(0,0,0,0) 30%,rgba(0,0,0,0.5) 100%)
+
+		p
+			position absolute
+			width 40rem
+			height 40rem
+			// border 1px solid red
+			background: radial-gradient(rgba(244,23,234,.2) , rgba(0,0,0,0) );
+			left 50%
+			top 100%
+			margin-left  -20rem
+			margin-top -20rem
+			transform rotateX(90deg)

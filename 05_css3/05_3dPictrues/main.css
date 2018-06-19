@@ -1,0 +1,39 @@
+body {
+  font-size: 1.2rem;
+  background: #000;
+}
+#wrap {
+  perspective: 800px;
+}
+#wrap .sence {
+  position: relative;
+  width: 20rem;
+  height: 30rem;
+  margin: 10rem auto;
+  transform-style: preserve-3d;
+  transform: rotateX(-15deg) rotateY(0deg);
+}
+#wrap .sence ul li {
+  position: absolute;
+  transform: rotateY(0deg) translateZ(0px);
+  transition: 1s;
+}
+#wrap .sence ul li img {
+  width: 20rem;
+  float: left;
+  box-shadow: 0 0 8px #f9f;
+  border-radius: 5px;
+/*方位 间隔 渐变色*/
+  -webkit-box-reflect: below 5px -webkit-linear-gradient(top, rgba(0,0,0,0) 30%, rgba(0,0,0,0.5) 100%);
+}
+#wrap .sence p {
+  position: absolute;
+  width: 40rem;
+  height: 40rem;
+  background: radial-gradient(rgba(244,23,234,0.2), rgba(0,0,0,0));
+  left: 50%;
+  top: 100%;
+  margin-left: -20rem;
+  margin-top: -20rem;
+  transform: rotateX(90deg);
+}
