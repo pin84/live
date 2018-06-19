@@ -67,6 +67,12 @@ article .content .info .avatar {
 article .content .info .avatar img {
   width: 100%;
 }
+article .content .myself a {
+  color: #000;
+}
+article .content .myself a:hover {
+  color: #f00;
+}
 article .content .work {
   display: flex;
   flex-direction: column;
