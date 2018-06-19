@@ -12,7 +12,7 @@ function rotate(obj) {
     if (i > 500) {
       clearInterval(rise)
     }
-  }, 1000)
+  }, 500)
 
   obj.addEventListener('click', () => {
     if (audio.paused) {

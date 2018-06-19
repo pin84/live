@@ -1,7 +1,7 @@
 body {
   font-size: 1.6rem;
   line-height: 1.5;
-  background-color: #f7f7f7;
+  background-color: #fff;
   font-family: 'Microsoft Yahei';
   margin-bottom: 5rem;
 }
@@ -150,7 +150,7 @@ article .content .picture label:nth-of-type(5) {
   height: 4.4rem;
   overflow: hidden;
   background: url("../img/music_on.png") no-repeat center;
-  transition: all 1s linear;
+  transition: all 0.5s linear;
 }
 .music:hover {
   cursor: pointer;
@@ -188,7 +188,7 @@ article .content .picture label:nth-of-type(5) {
   right: 50px;
   bottom: 0;
   background: url("../img/QR1.png") no-repeat center;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 .toolbar .totop {
   background: url("../img/to-top.png") no-repeat center;
