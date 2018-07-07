@@ -8,7 +8,7 @@ html {
   text-shadow: none;
 }
 
-body,ul,p,h1{
+body,ul,p,h1,h2,h3,h4,h5,h6{
   margin: 0;
   padding: 0;
 }
@@ -72,4 +72,20 @@ img{
   margin: 0;
   padding: 1rem;
   background: #ccc;
+}
+
+
+/*============
+  button
+=============*/
+.btn{
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  outline:0;
+  padding:1rem 1rem;
+  border-radius:5px;
+
 }

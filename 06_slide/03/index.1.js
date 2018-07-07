@@ -22,7 +22,7 @@ let cont = str.split('').reduce((total, num) => (total[num]++ || (total[num] = 1
 aTabs.addEventListener('click', (e) => {
   if (findParent('li', e.target)) {
     let ele = findParent('li', e.target)
-
+ 
     //找到指定元素的下标
     let siblings = ele.parentNode.children//打到所有兄弟元素
     let listArr = [].slice.call(siblings)//转为数组

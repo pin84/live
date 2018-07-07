@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../common/style/normalize.css">
+  <link rel="stylesheet" href="../common/style/util.css">
   <title>Document</title>
 
   <style>
@@ -20,12 +22,15 @@
     .box {
       float: left;
       padding: 5px;
+      width:250px;
+      box-sizing:border-box;
     }
 
     .box-img {
       padding: 5px;
       border: 1px solid #ccc;
       border-radius: 5px;
+      box-shadow:0 0 10px #ccc
     }
 
     img {
@@ -39,12 +44,72 @@
   <div class='container'>
     <div class="box">
       <div class="box-img">
+        <img src="../common/fullPage/page2_1.png">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
         <img src="../common/fullPage/page2_5.png">
       </div>
     </div>
     <div class="box">
       <div class="box-img">
         <img src="../common/fullPage/page2_1.png">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="../common/fullPage/page2_5.png">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="../common/fullPage/page2_1.png">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="../common/fullPage/page4_1.png">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="../common/fullPage/page2_1.png">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="../common/fullPage/page2_5.png">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="../common/fullPage/page2_1.png">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="../common/fullPage/page2_5.png">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="../common/fullPage/page2_1.png">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="../common/fullPage/page4_1.png">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="../common/fullPage/page2_1.png">
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-img">
+        <img src="../common/fullPage/page2_5.png">
       </div>
     </div>
     <div class="box">
@@ -70,6 +135,95 @@
   </div>
 
   <script src="../common/js/myAjax.js"></script>
+  <script type="text/javascript">
+    window.onload = function () {
+      let container = document.querySelector('.container')
+
+      let boxArr = getChildElements(container,'box')
+      let boxWidth = boxArr[0].offsetWidth
+
+      let num =  Math.floor(document.documentElement.clientWidth /boxWidth)
+      container.style.cssText = `width:${boxWidth*num}px;margin:0 auto`
+
+      let boxHeightArr = []
+      for(let i = 0; i < boxArr.length; i++ ){
+        if(i < num){
+          boxHeightArr[i] = boxArr[i].offsetHeight
+        } else {
+          let minHeight = Math.min.apply(null,boxHeightArr)
+
+          //拿到最小高度的位置minIndex
+          let minIndex = getMinHeightLocation(boxHeightArr,minHeight)
+
+          boxArr[i].style.position = 'absolute'
+          boxArr[i].style.top = minHeight + 'px'
+          boxArr[i].style.left = boxArr[minIndex].offsetLeft + 'px'
+
+          //高度最小放置一张图片在他后面的时候，让两张图片的高度相加
+          boxHeightArr[minIndex] += boxArr[i].offsetHeight 
+
+          // console.log(boxHeightArr)
+        }
+      }
+
+      window.onscroll = function(){
+
+        let imgData = {"data":[{'src':'3.jpg'}]}
+
+        if(checkFlag()){
+          for(let i = 0; i < imgData.data.length; i++){
+            console.log( imgData.data.length)
+
+            let div = document.createElement('div')
+            div.className = 'box'
+            container.appendChild(div)
+            let divImg = document.createElement('div')
+            divImg.className = 'box-img'
+            div.appendChild(divImg)
+            let img = document.createElement('img')
+            img.src = `../common/img/imgCartoon/5.jpg`
+            divImg.appendChild(img)
+          }
+        }
+      }
+
+    }
+
+    function checkFlag() {
+      let container = document.querySelector('.container')
+      let boxArr = getChildElements(container,'box')
+
+      let lastContentHeight = boxArr[boxArr.length - 1].offsetTop
+      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      let pageHeight = document.documentElement.clientHeight || document.boyd.clientHeight
+
+      // console.log(lastContentHeight,scrollTopa,pageHeight)
+
+      if(lastContentHeight < scrollTop + pageHeight){
+        return true
+      }
+    }
+
+
+    //拿到最小高度的位置
+    function getMinHeightLocation(heightArr,minHeight) {
+      for(let i in heightArr){
+        if(heightArr[i] === minHeight){
+          return i
+        }
+      }
+    }
+
+    //拿到指定元素下的所有指定类名的子元素
+    function getChildElements(parent,className) {
+      let arr = []
+      let allContent = parent.getElementsByClassName(className)
+      for(let i = 0 ,item;item = allContent[i++];){
+        arr.push(item)
+      }
+      return arr
+    }
+  </script>
 </body>
 
 </html>

@@ -27,7 +27,7 @@
 			width:100%;
 			height:100%;
 			transform:translateX(0px) translateZ(0px);
-			/*transition:5s;*/
+			/*transition:.5s;*/
 		}
 		.swiper ul li{
 			list-sytle:none;
@@ -73,7 +73,6 @@
 				<li><img src="../../common/img/imgCartoon/12.jpg" ></li>
 				<li><img src="../../common/img/imgCartoon/3.jpg" ></li>
 				<li><img src="../../common/img/imgCartoon/4.jpg" ></li>
-				<li><img src="../../common/img/imgCartoon/12.jpg" ></li>
 			<!-- 	<li><img src="../../common/img/imgCartoon/12.jpg" ></li>
 				<li><img src="../../common/img/imgCartoon/3.jpg" ></li>
 				<li><img src="../../common/img/imgCartoon/4.jpg" ></li> -->
@@ -94,20 +93,12 @@
 		getComputedStyle(这里用不到，不会用)
 		*/
 
-		/*
-			无限轮播实现的方法，
-			1、把第一张图片复制一份。放到最后，
-			2、当图片轮播到最后的时候。把transition的时间设为0，并把图片下标设为0。
-				由于最后一张和第一张是相同的图片，而切换的时间为0。所以看不出来。造成无限轮播的效果
-			3、重新开始轮播。
-
-		*/
-
 		let swiper = document.querySelector('.swiper'),
 		list = document.querySelector('.swiper ul'),
 		liWidth = list.querySelectorAll('li')[0].offsetWidth,
 		liLen = list.querySelectorAll('li').length,
-		firstLi = list.querySelectorAll('li')[0]
+		liImg = list.querySelectorAll('li img')
+
 		//tab
 		let tab = document.querySelector('.tab')
 
@@ -193,17 +184,17 @@
 		}
 	}
 
-	//生成相对应的小圆点
-	let fragment = new DocumentFragment()
-	let span
-	for(let i = 0; i < liLen - 1; i++){ //最后一张图片和第一张是相同的。所以生成的圆点要减一
-		span = document.createElement('span')
-		span.index = i
-		fragment.append(span)
-	}
-	fragment.firstChild.className = 'active'
-	tab.append(fragment)
-	let oSpan = document.querySelectorAll('.tab span')
+//生成相对应的小圆点
+let fragment = new DocumentFragment()
+let span
+for(let i = 0; i < liLen; i++){
+	span = document.createElement('span')
+	span.index = i
+	fragment.append(span)
+}
+fragment.firstChild.className = 'active'
+tab.append(fragment)
+let oSpan = document.querySelectorAll('.tab span')
 
 	//点击小圆点换图	
 	let arrSpan
@@ -214,19 +205,15 @@
 
 			tabChange(oSpan,event.target.index)
 
-			list.style.transition = '1s'
+			list.style.transition = '.5s'
 			cssTransform(list,'translateX',-(event.target.index)*liWidth)
 		}
 	})	
 
 	//tab切换圆点颜色
 	function tabChange(arr,index) {
-		
 		for(let key of arr){
 			key.className = ''
-		}
-		if(index === liLen -1){ //圆点的个数要比图片的个数少一，因为第一张和最后一张是相同的图片
-			index = 0
 		}
 		arr[index].className = 'active'
 	}
@@ -234,9 +221,8 @@
 	//自动轮播
 	let timer 
 	let i = 0 
-	let time = 2000
 	function autoPlay() {
-		timer = setInterval(autoPlayFn,time)
+		timer = setInterval(autoPlayFn,2000)
 	}
 	//鼠标进入时停止轮播
 	list.addEventListener('mouseover',function(){
@@ -244,24 +230,17 @@
 	})
 	//鼠标离开时重新开始轮播
 	list.addEventListener('mouseout',function(){
-		timer = setInterval(autoPlayFn,time)
+		timer = timer = setInterval(autoPlayFn,2000)
 	})
 	autoPlay()
 
 	//给计时器用的换图的方法
 	function autoPlayFn() {
-		//判断当li 为最后一张时。把transition的时间设为0。切换到第一张图片，然后重新开始循环，造成无限轮播的错觉
-		if(i === 0 ){
-				// time = 0
-				list.style.transition = '' // up时设为.5s
-			} else {
-				// time = 2000
-				list.style.transition = '1s' // up时设为.5s
-			}
 		tabChange(oSpan,i)
+		list.style.transition = '.5s' // up时设为.5s
 		cssTransform(list,'translateX',-i*liWidth)
 		i++
-		if(i === liLen ){
+		if(i === liLen){
 			i = 0
 		} 
 	}

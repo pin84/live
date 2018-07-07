@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-    <title>鼠标拖拽图片</title>
-    <link rel="stylesheet" href="../../common/style/normalize.css">
-    <link rel="stylesheet" href="../../common/style/util.css">
-    <style>
-      html{
-        font-size: 1rem
-      }
-      .box{
-        width: 90%;
-        height: 30rem;
-        border: 1px solid #eee;
-        margin: 0 auto;
-        position: relative;
-      }
+  <meta charset="UTF-8">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+  <title>鼠标拖拽图片</title>
+  <link rel="stylesheet" href="../../common/style/normalize.css">
+  <link rel="stylesheet" href="../../common/style/util.css">
+  <style>
+    html{
+      font-size: 1rem
+    }
+    .box{
+      width: 90%;
+      height: 30rem;
+      border: 1px solid #eee;
+      margin: 0 auto;
+      position: relative;
+    }
       /* .box ul{
         display:flex;
         flex-wrap: wrap;
@@ -33,60 +33,145 @@
         height: 15rem;
       }
     </style>
-</head>
-<body>
-<div class="header">
-    <h1>利用鼠标坐标实现图片拖动</h1>
-    <a href="https://pin84.github.io/live" >返回主页</a>
-    <a href="https://github.com/pin84/">返回我的仓库</a>
-</div>
-<hr>
-<div class="box">
-    <ul>
-      <li><img src="../../common/img/1.png"></li>
-      <li><img src="../../common/img/2.png"></li>
-      <!-- <li><img src="../../common/img/8.png"></li> -->
-      <li><img src="../../common/img/4.png"></li>
-      <li><img src="../../common/img/5.png"></li>
-      <li><img src="../../common/img/6.png"></li>
-      <li><img src="../../common/img/7.png"></li>
-      <li><img src="../../common/img/8.png"></li>
-      <li><img src="../../common/img/9.png"></li>
-    </ul>
-</div>
-</body>
-<script src="../../common/js/mouseDrag.js"></script>
-<!-- <script>
-    function drag(obj) {
-        obj.bind("mousedown", start);
-
-        function start(event) {
-            console.log(event.clientX);
-            deltaX = event.clientX - obj.offset().left;
-            deltaY = event.clientY - obj.offset().top;
-
-            $(document).bind("mousemove", move);
-            $(document).bind("mouseup", stop);
-            return false;
-        }
-
-        function move(event) {
-            console.log("move");
-            obj.css({
-                "left": (event.clientX - deltaX) + "px",
-                "top": (event.clientY - deltaY) + "px"
-            })
-            return false;
-        }
-
-        function stop() {
-            console.log("mousestop");
-            $(document).unbind("mousemove", move);
-            $(document).unbind("mouseup", stop);
-        }
+  </head>
+  <body>
+    <div class="header">
+      <h1>利用鼠标坐标实现图片拖动</h1>
+      <a href="https://pin84.github.io/live" >返回主页</a>
+      <a href="https://github.com/pin84/">返回我的仓库</a>
+    </div>
+    <hr>
+    <div class="box">
+      <ul>
+        <li><img src="../../common/img/1.png"></li>
+        <li><img src="../../common/img/2.png"></li>
+        <!-- <li><img src="../../common/img/8.png"></li> -->
+        <li><img src="../../common/img/4.png"></li>
+        <li><img src="../../common/img/5.png"></li>
+        <li><img src="../../common/img/6.png"></li>
+        <li><img src="../../common/img/7.png"></li>
+        <li><img src="../../common/img/8.png"></li>
+        <li><img src="../../common/img/9.png"></li>
+      </ul>
+    </div>
+  </body>
+  <!-- <script src="../../common/js/mouseDrag.js"></script> -->
+  <script type="text/javascript">
+    //  *业务需求分析
+    //  * 1、把浮动布局改为定位布局，以利用坐标点移动元素
+    //  * 2、拖拽带伤
+    //  * 3、碰撞检测
+    //  * 4、打到碰撞成功的最近的元素
+    //  * 5、交换位置
+    let li = document.querySelectorAll('.box ul li')
+    for (let i = 0; i < li.length; i++) {
+      drag(li[i])
+    }
+    let len = li.length
+    let arr = []
+    for (let i = 0; i < len; i++) {
+      arr.push([[li[i].offsetLeft], [li[i].offsetTop]])
     }
 
-    obj = $(".box");
-    drag(obj);
-</script> -->
+    for (let i = 0; i < len; i++) {
+      li[i].style.position = 'absolute'
+      li[i].style.left = arr[i][0] + 'px'
+      li[i].style.top = arr[i][1] + 'px'
+    }
+
+    function drag(obj) {
+      let z = 1
+      obj.onmousedown = (e) => {
+        let mx = e.clientX
+        let my = e.clientY
+
+        let ox = obj.offsetLeft
+        let oy = obj.offsetTop
+
+        obj.style.zIndex = z++
+
+        document.onmousemove = (e) => {
+          let _left = e.clientX - mx + ox
+          let _top = e.clientY - my + oy
+          obj.style.left = _left + 'px'
+          obj.style.top = _top + 'px'
+
+      //调用检测碰撞的方法 impact()
+      // for (let j = 0; j < len; j++) {
+      //   if (impact(obj, li[j]) && obj !== li[j]) {
+      //     li[j].style.border = '1px solid red'
+      //   }
+      // }
+      //impact ========END======
+
+      //打到最近的LI
+      let oLi = nearLi(obj)
+      if(oLi){
+        oLi.style.border = '1px solid red'
+      }
+    }
+    document.onmouseup = function () {
+      document.onmousemove = null
+      document.onmouseup = null
+
+      //交换位置
+      let oLi = nearLi(obj)
+      if(oLi){
+        oLi.style.border = '1px solid transparent'
+      }
+    }
+    return false
+  }
+}
+
+//检测是否碰撞
+function impact(obj1, obj2) {
+  let L1 = obj1.offsetLeft,
+  R1 = L1 + obj1.offsetWidth,
+  T1 = obj1.offsetTop,
+  B1 = T1 + obj1.offsetHeight;
+
+  let L2 = obj2.offsetLeft,
+  R2 = L2 + obj2.offsetWidth,
+  T2 = obj2.offsetTop,
+  B2 = T2 + obj2.offsetHeight
+
+  if (B1 < T2 || L1 > R2 || T1 > B2 || R1 < L2) {
+    //没碰到
+    // console.log('aaa')
+    return false
+  } else {
+    //碰到了
+    // console.log('bbb')
+    return true
+  }
+}
+
+//找到碰撞的最近的元素
+//用勾股定理计算出最近的斜边
+function distance(obj1, obj2) {
+  let a = obj1.offsetLeft - obj2.offsetLeft
+  let b = obj1.offsetTop = obj2.offsetTop
+
+  return Math.sqrt(a * a + b * b)
+}
+
+function nearLi(obj) {
+  var oLi = ''
+  let n = 10000 //中间值 ，只要比页面内的元素距离 大就行
+  //拖拽成功的和其他碰撞成功的元素比较
+  for (let j = 0; j < len; j++) {
+    if (impact(obj, li[j]) && obj !== li[j]) {
+      // li[j].style.border = '1px solid red'
+      let c = distance(obj, li[j])
+      if (c < n) {
+        n = c //拿的到最小的C
+        oLi = li[j]
+      }
+    }
+  }
+  return oLi
+}
+
+</script>
 </html>

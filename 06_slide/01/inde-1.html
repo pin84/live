@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>swiper</title>
+	<style type="text/css">
+		*{margin:0; padding:0;}
+		li{list-style:none;}
+		.auto{
+			top:0;
+			left:0;
+			right:0;
+			bottom:0;
+			margin:auto;
+		}
+		.container{
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			position:relative;
+			width:100vw;
+			height:100vh;
+			overflow:hidden;
+			background-color:#f5f5f5;
+		}
+		.bg_pic{
+			position:absolute;
+			width:100%;
+			height:100vh;
+		}
+		.bg_pic img{
+			width:100%;
+			height:100%;
+			filter:blur(5px);
+		}
+		.swiper{
+			width:100vw;
+			height:60vh;
+			overflow:hidden;
+		}
+		.swiper ul{
+			width:100%;
+			height:60vh;
+			transform:translateX(0px) translateZ(0px);
+		}
+		.swiper ul li{
+			list-sytle:none;
+			width:100vw;
+			height:60vh;
+			float:left;
+		}
+		.swiper ul li img{
+			display:block;
+			border-radius:10px;
+			margin:0 auto;
+			width:60%;
+			height:90%;
+		}
+	</style>
+</head>
+<body>
+	<section class="container">
+		<div class="bg_pic auto">
+			<img src="../../common/img/imgCartoon/12.jpg">
+		</div>
+		<div class="swiper">
+			<ul>
+				<li><img src="../../common/img/imgCartoon/12.jpg" ></li>
+				<li><img src="../../common/img/imgCartoon/3.jpg" ></li>
+				<li><img src="../../common/img/imgCartoon/4.jpg" ></li>
+				<li><img src="../../common/img/imgCartoon/13.jpg" ></li>
+				<li><img src="../../common/img/imgCartoon/14.jpg" ></li>
+			</ul>
+			<div class='tab'>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</section>
+
+	<script type="text/javascript">
+	/*
+		1、获取元素
+		2、初始化ul元素的宽度，使用li元素可以横向排列
+		3、初始化 ul 元素的两个属性：translateX(0px)、translateZ(0px)
+
+		getComputedStyle
+		*/
+		let swiper = document.querySelector('.swiper'),
+		list = document.querySelector('.swiper ul'),
+		liWidth = list.querySelectorAll('li')[0].offsetWidth,
+		liLen = list.querySelectorAll('li').length,
+		liImg = list.querySelectorAll('li img'),
+		bgImg = document.querySelector('.bg_pic img')
+
+		//初始化点击
+		let startX = 0 ,
+		startPoint = null,
+		translateX = 0,
+		swiperWidth = swiper.offsetWidth,
+		num = 0
+
+		list.style.width = `${liLen}00%` //初始化ul宽度
+
+		//初始化tx tz 
+		cssTransform(list,'translateX', 0)
+		cssTransform(list,'translateY', 0)
+		// let a = cssTransform(list,'translateY')
+
+		swiper.addEventListener('touchstart',(event)=>{
+			event = event || window.event
+			//阻止默认事件和冒泡
+			event.stopPropagation()
+			event.preventDefault()
+
+			//手指按下
+			startPoint = event.changedTouches[0]
+			list.style.transition = ''
+			startX  =  cssTransform(list,'translateX')
+		},false)
+
+
+		swiper.addEventListener('touchmove',(event)=>{
+			event = event || window.event
+			//阻止默认事件和冒泡
+			event.stopPropagation()
+			event.preventDefault()
+
+			//手指移动<p></p>
+			let nowPoint = event.changedTouches[0]
+			let diffx = nowPoint.pageX-startPoint.pageX
+			translateX= startX + diffx
+			cssTransform(list,'translateX',translateX)
+
+		},false)
+
+		swiper.addEventListener('touchend',(event)=>{
+			event = event || window.event
+			//阻止默认事件和冒泡
+			event.stopPropagation()
+			event.preventDefault() 
+
+			//获取元素停止移动时，元素的translateX的值 
+			let l = cssTransform(list,'translateX')
+			l = Math.min(0,l)
+			l = Math.max(l,-(liLen-1)*liWidth)
+			num = Math.round(-l / swiper.offsetWidth)
+
+			autoPlay()
+		},false)
+
+		function autoPlay() {
+			list.style.transition = '0.5s'
+			cssTransform(list,'translateX',-num*swiperWidth)
+
+			bgImg.src = liImg[num].src
+		}
+
+		//修改transform样式
+		function cssTransform(obj,attr,val) {
+			if(!obj.transform){
+				obj.transform = {}
+			}
+			if(arguments.length === 3){
+				obj.transform[attr] = val
+				let strVal = ''
+				for(var key in obj.transform){
+					strVal += `${key}(${obj.transform[key]}px)`
+				}
+				obj.style.transform = strVal
+			} else { //两个参数示完成
+				val = obj.transform[attr]
+				if(typeof val === 'undefined'){
+					val = 0
+				}
+				return val
+			}  
+		}
+
+
+	</script>
+</body>
+</html>

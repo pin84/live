@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>h5upload</title>
+	<link rel="stylesheet"  href="../common/style/normalize.css">
+	<link rel="stylesheet"  href="../common/style/util.css">
+	<style type="text/css">
+		body{
+			font-size:1.6rem;
+		}
+		#wrap{
+			position:relative;
+			width:80rem;
+			/*height:30rem;*/
+			border:1px solid red;
+			margin:3rem auto;
+			display:flex;
+			flex-flow:column ;
+		}
+
+		#wrap .title{
+			border-radius:5px;
+			border-bottom:1px solid #eee;
+			margin-bottom:1rem;
+			text-align:center;
+			height:3rem;
+			line-height:3rem;
+			padding:1rem;
+		}	
+		#wrap .title h3{
+			color:#777;
+		}
+		#wrap .ratio{
+			position:absolute;
+			color:red;
+			margin-right:2rem;
+			background:#eee;
+		
+		}
+		#wrap .content{
+			display:flex;
+			flex-flow:column;
+			margin:0.5rem 0;
+		}
+		#wrap .content .area{
+			width:95%;
+			margin:0 auto;
+			height:15rem;
+			background:#eee;
+			color:gray;
+			text-align:center;
+			line-height:15rem;
+		}
+		#wrap .content .upload{
+			align-self:flex-end;
+			margin:1rem 2rem;
+			font-size:1.6rem;
+		}
+
+		#wrap .content .list{
+			/*display:block;*/
+			width:95%;
+			min-height:15rem;
+			border:1px solid #eee;
+			margin:0 auto;
+			display:flex;
+			flex-flow: wrap;
+		}
+		#wrap .content .list li{
+			margin:0.5rem ;
+			width:10rem;
+		}
+	</style>
+</head>
+<body>
+	<section id='wrap'>
+		<div class="title">
+			<div class="ratio">0%</div>
+			<h3>图片拖拽上传示范</h1>
+		</div>
+		<div class='content'>
+			<div class="area">请将图片拖到此区域</div>
+			<button class="btn upload">upload</button>
+			<ul class='list'></ul>
+		</div>
+	</section>
+
+		<script type="text/javascript">
+		/*
+		e.dataTransfer
+			H5为所有拖动的相关对象进了提供了一个新的属性，
+			用于在源对象和目标对象之间传递数据
+		FileReader: 使用文件对象读取文件信息
+			
+			
+		*/
+		let area = document.getElementsByClassName('area')[0]
+		let oUl = document.getElementsByClassName('list')[0]
+		let upload = document.getElementsByClassName('upload')[0]
+		let title = document.getElementsByClassName('ratio')[0]
+		let arr = []
+		area.addEventListener('dragenter',drag,false)
+		area.addEventListener('dragover',drag,false)
+		area.addEventListener('dragleave',drag,false)
+		area.addEventListener('drop',drag,false)
+
+		function drag(e) {
+			e.preventDefault()
+			switch(e.type){
+				case 'dragenter':
+				this.innerHTML = 'ENTER'
+				break
+				case 'dragover':
+				this.innerHTML = 'dragover'
+				break
+				case 'dragleave':
+				this.innerHTML = 'dragleave'
+				break
+				case 'drop':
+				let aFile = e.dataTransfer.files;
+				[].forEach.call(aFile,(item)=>{
+					arr.push(item)//把要上传的文件存到数组里，
+					let fileRead = new FileReader()
+					fileRead.readAsDataURL(item)
+					fileRead.addEventListener('load',function () {
+						let li = document.createElement('li')
+						li.innerHTML = `<img src='${this.result}' width='100%'>`
+						oUl.appendChild(li)
+					})
+				})
+				break
+			}
+		}
+
+		upload.addEventListener('click',()=>{
+
+			arr.forEach(function(item){
+				let xhr = new XMLHttpRequest()
+				//xhr.upload.onprogress 监控上传的进度条
+				xhr.upload.onprogress = function(e){
+					console.log(e.total +':' + e.loaded)
+					let scale = e.loaded / e.total
+
+					title.style.width = 780 * scale + 'px'
+					let con = scale * 100
+					title.innerHTML = con.toFixed(2) + '%'
+				}
+
+				xhr.open('post','upload.php',true)
+				//FormData对象
+				let oFormData = new FormData()
+				oFormData.append('file',item)
+				xhr.send(oFormData)
+			})
+		})
+	</script>
+</body>
+</html>
