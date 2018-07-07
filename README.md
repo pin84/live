@@ -4,5 +4,5 @@
 
 1、一些静态页面
 
-	- [miaov](https://pin84.github.io/live/pin84)
+[miaov](https://pin84.github.io/live/pin84)
 
