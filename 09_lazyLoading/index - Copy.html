@@ -41,7 +41,7 @@
 </head>
 
 <body>
-  <div id='container'>
+  <div class='container'>
     <div class="box">
       <div class="box-img">
         <img src="../common/fullPage/page2_1.png">
@@ -137,51 +137,14 @@
   <script src="../common/js/myAjax.js"></script>
   <script type="text/javascript">
     window.onload = function () {
-      // let container = document.querySelector('.container')
+      let container = document.querySelector('.container')
 
-      // let boxArr = getChildElements(container,'box')
-      // let boxWidth = boxArr[0].offsetWidth
+      let boxArr = getChildElements(container,'box')
+      let boxWidth = boxArr[0].offsetWidth
 
-      // let num =  Math.floor(document.documentElement.clientWidth /boxWidth)
-      // container.style.cssText = `width:${boxWidth*num}px;margin:0 auto`
+      let num =  Math.floor(document.documentElement.clientWidth /boxWidth)
+      container.style.cssText = `width:${boxWidth*num}px;margin:0 auto`
 
-      
-      imgLocation('container','box')
-
-
-      /*
-      window.onscroll = function(){
-
-        let imgData = {"data":[{'src':'3.jpg'}]}
-
-        if(checkFlag()){
-          for(let i = 0; i < imgData.data.length; i++){
-            console.log( imgData.data.length)
-
-            let div = document.createElement('div')
-            div.className = 'box'
-            container.appendChild(div)
-            let divImg = document.createElement('div')
-            divImg.className = 'box-img'
-            div.appendChild(divImg)
-            let img = document.createElement('img')
-            img.src = `../common/img/imgCartoon/5.jpg`
-            divImg.appendChild(img)
-          }
-        }
-      }
-      */
-
-    }
-
-    function imgLocation(parentId,className) {
-
-      let parent = document.getElementById(parentId)
-      let content = getChildElements(parent,className)
-      console.log(content)
-
-
-      /*
       let boxHeightArr = []
       for(let i = 0; i < boxArr.length; i++ ){
         if(i < num){
@@ -202,10 +165,30 @@
           // console.log(boxHeightArr)
         }
       }
-      */
+
+      window.onscroll = function(){
+
+        let imgData = {"data":[{'src':'3.jpg'}]}
+
+        if(checkFlag()){
+          for(let i = 0; i < imgData.data.length; i++){
+            console.log( imgData.data.length)
+
+            let div = document.createElement('div')
+            div.className = 'box'
+            container.appendChild(div)
+            let divImg = document.createElement('div')
+            divImg.className = 'box-img'
+            div.appendChild(divImg)
+            let img = document.createElement('img')
+            img.src = `../common/img/imgCartoon/5.jpg`
+            divImg.appendChild(img)
+          }
+        }
+      }
+
     }
 
-    /*
     function checkFlag() {
       let container = document.querySelector('.container')
       let boxArr = getChildElements(container,'box')
@@ -220,7 +203,7 @@
         return true
       }
     }
-  */
+
 
     //拿到最小高度的位置
     function getMinHeightLocation(heightArr,minHeight) {
@@ -228,7 +211,7 @@
         if(heightArr[i] === minHeight){
           return i
         }
-      }  
+      }
     }
 
     //拿到指定元素下的所有指定类名的子元素
