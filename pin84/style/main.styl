@@ -63,21 +63,27 @@ article
     .work
       display flex
       flex-direction column
-      margin-top -1rem
-      margin-bottom 1rem
       .company
+        margin-top 1rem
         display flex
         flex-direction: row
-        margin-bottom -2rem
         .company_name
-          padding 0 2rem
-        span
-          line-height: 6.5rem
+          padding 0 0
+          &::after
+            content '|'
+            margin 0 1rem
+          &::before
+            content '|'
+            margin 0 1rem
     .education
       width 100%
       div
-        display flex
-        line-height: 0.5rem
+        // display flex
+        // line-height: 0.5rem
+        h4
+          display inline-block
+          line-height 3rem
+          font-weight 500
         span
           line-height 5rem
         .school_name
@@ -176,7 +182,7 @@ div.title
   border-bottom: 2px solid #507180
   position: relative
   left: -4.7rem //有3rem是容器的padding
-  margin-bottom: 15px
+  margin: 15px  0 
   display flex
   .tip
     height: 0;

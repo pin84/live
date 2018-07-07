@@ -76,26 +76,30 @@ article .content .myself a:hover {
 article .content .work {
   display: flex;
   flex-direction: column;
-  margin-top: -1rem;
-  margin-bottom: 1rem;
 }
 article .content .work .company {
+  margin-top: 1rem;
   display: flex;
   flex-direction: row;
-  margin-bottom: -2rem;
 }
 article .content .work .company .company_name {
-  padding: 0 2rem;
+  padding: 0 0;
 }
-article .content .work .company span {
-  line-height: 6.5rem;
+article .content .work .company .company_name::after {
+  content: '|';
+  margin: 0 1rem;
+}
+article .content .work .company .company_name::before {
+  content: '|';
+  margin: 0 1rem;
 }
 article .content .education {
   width: 100%;
 }
-article .content .education div {
-  display: flex;
-  line-height: 0.5rem;
+article .content .education div h4 {
+  display: inline-block;
+  line-height: 3rem;
+  font-weight: 500;
 }
 article .content .education div span {
   line-height: 5rem;
@@ -203,7 +207,7 @@ div.title {
   border-bottom: 2px solid #507180;
   position: relative;
   left: -4.7rem;
-  margin-bottom: 15px;
+  margin: 15px 0;
   display: flex;
 }
 div.title .tip {
