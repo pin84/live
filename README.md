@@ -1,3 +1,4 @@
-# 日常练习
+## 日常练习
 
-## 地址：https://pin84.github.io/live/
+> 这是我的静态页面的练习。点击 [这里](https://pin84.github.io/live/) 查看
+
