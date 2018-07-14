@@ -2,7 +2,6 @@ body {
   font-size: 1.6rem;
   line-height: 1.5;
   background-color: #fff;
-  font-family: 'Microsoft Yahei';
   margin-bottom: 5rem;
 }
 header {
@@ -161,20 +160,18 @@ article .content .picture label:nth-of-type(5) {
 }
 .toolbar {
   position: fixed;
-  right: 0;
-  bottom: 0;
+  right: 5px;
+  bottom: 10px;
 }
 .toolbar .weixin,
 .toolbar .totop {
   position: relative;
   display: block;
-  padding: 6px;
   width: 32px;
   height: 32px;
   border-bottom: 2px solid #fff;
 }
 .toolbar .weixin {
-  margin-bottom: 5px;
   background: url("../img/wx.png") no-repeat center;
 }
 .toolbar .weixin:hover .toolbar-layer {
@@ -189,12 +186,13 @@ article .content .picture label:nth-of-type(5) {
   opacity: 0;
   transform-origin: 95% 95%;
   transform: scale(0.01);
-  right: 50px;
+  right: 32px;
   bottom: 0;
   background: url("../img/QR1.png") no-repeat center;
   transition: all 0.5s;
 }
 .toolbar .totop {
+  opacity: 0;
   background: url("../img/to-top.png") no-repeat center;
   transition: all 1s;
 }

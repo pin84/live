@@ -136,27 +136,15 @@
 
   <script src="../common/js/myAjax.js"></script>
   <script type="text/javascript">
-    window.onload = function () {
-      // let container = document.querySelector('.container')
+    window.onload = function () { 
 
-      // let boxArr = getChildElements(container,'box')
-      // let boxWidth = boxArr[0].offsetWidth
-
-      // let num =  Math.floor(document.documentElement.clientWidth /boxWidth)
-      // container.style.cssText = `width:${boxWidth*num}px;margin:0 auto`
-
-      
       imgLocation('container','box')
 
-
-      /*
+      let imgData = {data:[{src:'../common/img/1.png'},{src:'../common/img/5.png'},{src:'../common/img/8.png'},{src:'../common/img/9.png'},]}
       window.onscroll = function(){
-
-        let imgData = {"data":[{'src':'3.jpg'}]}
-
         if(checkFlag()){
+          let parent = document.getElementById('container')
           for(let i = 0; i < imgData.data.length; i++){
-            console.log( imgData.data.length)
 
             let div = document.createElement('div')
             div.className = 'box'
@@ -165,62 +153,67 @@
             divImg.className = 'box-img'
             div.appendChild(divImg)
             let img = document.createElement('img')
-            img.src = `../common/img/imgCartoon/5.jpg`
+            img.src = imgData.data[i].src
             divImg.appendChild(img)
           }
+          imgLocation('container','box')
         }
       }
-      */
-
     }
 
     function imgLocation(parentId,className) {
 
       let parent = document.getElementById(parentId)
       let content = getChildElements(parent,className)
-      console.log(content)
 
-
-      /*
+      //一排放多少个图片
+      let imgWidth = content[0].offsetWidth
+      let num = Math.floor(document.documentElement.clientWidth / imgWidth)
+      parent.style.cssText = 'width:'+imgWidth*num+'px;margin:0 auto;'
+      
       let boxHeightArr = []
-      for(let i = 0; i < boxArr.length; i++ ){
-        if(i < num){
-          boxHeightArr[i] = boxArr[i].offsetHeight
-        } else {
-          let minHeight = Math.min.apply(null,boxHeightArr)
+      for(let i = 0; i < content.length; i++ ){
+        if(i < num) {
+          boxHeightArr[i] = content[i].offsetHeight
+        } else { // 第一排之外的图片的TOP值为最小的那张
+          let minHieght = Math.min.apply(null,boxHeightArr)
+          let minIndex = getMinHeightLocaltion(boxHeightArr,minHieght)
+          content[i].style.position = 'absolute'
+          content[i].style.top = minHieght + 'px'
+          content[i].style.left = content[minIndex].offsetLeft +'px'
 
-          //拿到最小高度的位置minIndex
-          let minIndex = getMinHeightLocation(boxHeightArr,minHeight)
+          //第一排最小的图片的高度加上第二排放在他后面的那张的高度
+          boxHeightArr[minIndex] +=  content[i].offsetHeight
 
-          boxArr[i].style.position = 'absolute'
-          boxArr[i].style.top = minHeight + 'px'
-          boxArr[i].style.left = boxArr[minIndex].offsetLeft + 'px'
-
-          //高度最小放置一张图片在他后面的时候，让两张图片的高度相加
-          boxHeightArr[minIndex] += boxArr[i].offsetHeight 
-
-          // console.log(boxHeightArr)
         }
       }
-      */
     }
 
-    /*
-    function checkFlag() {
-      let container = document.querySelector('.container')
-      let boxArr = getChildElements(container,'box')
 
-      let lastContentHeight = boxArr[boxArr.length - 1].offsetTop
+
+    
+    function checkFlag() {
+      let container = document.getElementById('container')
+      let content = getChildElements(container,'box')
+
+      let lastContentHeight = content[content.length - 1].offsetTop
       let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
       let pageHeight = document.documentElement.clientHeight || document.boyd.clientHeight
 
-      // console.log(lastContentHeight,scrollTopa,pageHeight)
-
       if(lastContentHeight < scrollTop + pageHeight){
         return true
+      }  
+    }
+    
+
+    //拿到最小高度图片的位置
+    function getMinHeightLocaltion(boxHeightArr,minHeight) {
+      for(let i in boxHeightArr){
+        if(boxHeightArr[i] === minHeight){
+          return i
+        }
       }
     }
-  */
 
     //拿到最小高度的位置
     function getMinHeightLocation(heightArr,minHeight) {
