@@ -4,7 +4,7 @@
 
 1、一些静态页面
 
- [我的简历](https://pin84.github.io/live/pin84)  |    [miaov](https://pin84.github.io/live/01_miaovWeb)  |   [yiling](https://pin84.github.io/live/02_yiling)   |  [weimeiyige](https://pin84.github.io/live/03_weimeiyige)
+ [我的简历](https://pin84.github.io/live/pin84)  |    [miaov](https://pin84.github.io/live/01_miaovWeb)  |   [yiling](https://pin84.github.io/live/02_yiling)   |  [weimeiyige](https://pin84.github.io/live/03_weimeiyige)  |  [道锋集团](https://pin84.github.io/live/01_web/02-daofeng/) 
 
 2、css3
 

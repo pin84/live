@@ -1,7 +1,7 @@
 /**
  * 用 swiper 插件实现图个轮播
  */ 
-var swiper = new Swiper('.swiper-container', {
+var swiper = new Swiper('.banner', {
   slidesPerView: 1,
   // spaceBetween: 30,
   loop: true,
@@ -19,4 +19,21 @@ var swiper = new Swiper('.swiper-container', {
   //   nextEl: '.swiper-button-next',
   //   prevEl: '.swiper-button-prev',
   // },
+});
+
+var swiper = new Swiper('.show', {
+  slidesPerView: 3,
+  spaceBetween: 5,
+  slidesPerGroup: 1,
+  speed: 500,
+  loop: true,
+  loopFillGroupWithBlank: true,
+  // pagination: {
+  //   el: '.swiper-pagination',
+  //   clickable: true,
+  // },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
 });
