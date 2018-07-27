@@ -1,0 +1,74 @@
+body {
+  background: #efeff1;
+}
+.main {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+}
+.main .server-range {
+  flex-basis: 17rem;
+}
+.main .server-range .title {
+  padding: 4rem 0 1.5rem 1rem;
+  display: flex;
+  background: #dedede;
+}
+.main .server-range .title .title-left {
+  font-size: 7rem;
+  margin-top: -13px;
+}
+.main .server-range .title .title-right {
+  margin-left: 5px;
+}
+.main .server-range .title .title-right h2 {
+  font-size: 2.5rem;
+  letter-spacing: 5px;
+}
+.main .server-range .title .title-right span {
+  font-size: 2rem;
+}
+.main .server-range .list {
+  font-size: 1.4rem;
+  color: #565656;
+}
+.main .server-range .list li {
+  border-top: 1px solid #fff;
+  display: inline-block;
+  width: 204px;
+  height: 36px;
+  line-height: 36px;
+  position: relative;
+}
+.main .server-range .list li .icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-bottom: -6px;
+  margin-left: -4.5px;
+}
+.main .server-range .list li a {
+  display: block;
+  height: 100%;
+  padding: 0 25px 0 52px;
+  color: #565656;
+  position: relative;
+  background: #e5e4e3;
+}
+.main .server-range .list li a.active {
+  width: 144px;
+  height: 48px;
+  background: url("../../images/business/on.gif");
+  color: #fff;
+}
+.main .server-range .list li a:hover {
+  width: 144px;
+  height: 48px;
+  background: url("../../images/business/on.gif");
+  color: #fff;
+}
+.main .detail-list {
+  width: 100%;
+  border: 1px solid #f00;
+  margin-left: 3rem;
+}

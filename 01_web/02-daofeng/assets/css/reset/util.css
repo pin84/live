@@ -1,9 +1,12 @@
 html {
-  font-size: 62.5%;
+  font-size:62.5%;
   color: #222;
   font-family: 'Microsoft Yahei';
   min-width: 75rem;
 }
+/* body {
+  font-size:62.5%;
+} */
 ::selection {
   background-color: #b3d4fc;
   text-shadow: none;

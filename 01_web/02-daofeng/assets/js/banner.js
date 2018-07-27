@@ -1,6 +1,7 @@
 /**
  * 用 swiper 插件实现图个轮播
  */ 
+/* 不用做轮播
 var swiper = new Swiper('.banner', {
   slidesPerView: 1,
   // spaceBetween: 30,
@@ -15,12 +16,9 @@ var swiper = new Swiper('.banner', {
     disableOnInteraction: false,
     transitionDuration: 4000
   },
-  // navigation: {
-  //   nextEl: '.swiper-button-next',
-  //   prevEl: '.swiper-button-prev',
-  // },
 });
 
+*/
 var swiper = new Swiper('.show', {
   slidesPerView: 3,
   spaceBetween: 5,
