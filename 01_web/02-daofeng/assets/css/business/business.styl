@@ -1,5 +1,5 @@
 body
-  background #efeff1
+  background #fff
 .main
   width 80%
   margin 0 auto
@@ -54,7 +54,80 @@ body
             height 48px
             background url(../../images/business/on.gif)
             color #fff
-  .detail-list
-    width 100%
-    border 1px solid red
-    margin-left 3rem
+  .content
+     margin-left 3rem
+     margin-top 3rem
+    .content-title
+      position relative
+      width 100%
+      border-bottom 1px solid #888
+      display flex
+      justify-content space-between
+      box-sizing border-box
+      padding 0 2rem 0 0
+      h1
+        color #ac2d23
+        font-size 2.5rem
+        font-weight 400
+        height 45px
+        line-height 45px
+      ul
+        display flex
+        position absolute
+        right 2rem
+        bottom -8px
+        li
+          &:after
+            content '>'
+          a
+            color black
+            font-size 1.4rem
+            line-height 45px
+            &:hover
+              color #ac3c58
+              text-decoration underline
+    .book-list
+      width 100%
+      // padding 1rem 0
+      ul
+        display flex
+        flex-wrap wrap
+        // justify-content flex-start
+        li
+          // width 16rem
+          width 19.3%
+          margin 0.2rem
+          // height 24.5rem
+          img
+            width 100%
+            height 100%
+    .search
+      padding 1rem 0
+      .sa, .sb
+        padding .2rem 0.5rem
+        font-size 1.4rem
+        outline none
+    .pagination
+      border-top 1px solid #e0e0e0;
+      border-bottom 1px solid #e0e0e0;
+      height 39px
+      margin-top 1rem
+      ul
+        display flex
+        justify-content center
+        li
+          border-right 1px solid #e0e0e0;
+          &:last-child
+            border-right none
+          &.current
+            a
+              background #CCFFFF
+          a
+            display block
+            padding 0 1.3rem
+            font-size 1.4rem
+            color #777
+            height 39px
+            line-height 39px
+            &:hover
+              background #99CCCC
