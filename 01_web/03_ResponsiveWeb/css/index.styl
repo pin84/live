@@ -1,0 +1,464 @@
+@import 'normalize.css'
+@import 'common.css'
+
+
+body
+  font-size 1.2rem
+  line-height: 1.5
+  background-color #f7f7f7
+
+a
+  color #666666
+  text-decoration none
+  &:hover,a:active
+    color#0ae
+    text-decoration underline
+
+header
+  width 100%
+  .top
+    line-height: 3rem
+    padding 0 1.5rem
+    color #fff
+    background-color #555
+    // border-bottom 1px #ecc000 solid
+    .tel
+      float left
+    ul
+      float right
+      li
+        display inline-block
+        // background-color #ff0000
+      & li+li
+        border-left 1px solid #999
+        margin-left -3px
+      a
+        display inline-block
+        padding 0 1.5rem
+        color #fff
+@media only screen and (max-width 50em){
+  header .top ul li a{
+    padding 0 1rem
+  }
+}
+@media only screen and (min-width 30.0625em) and (max-width 50em){
+
+}
+@media only screen and (max-width 30em){
+  header .top .tel,
+  header .top ul li:nth-child(3),
+  header .top ul li:nth-child(4){
+    display: none
+  }
+}
+
+  .main
+    padding 0
+    .brand
+      float left
+      padding 1rem 1.5rem
+    ul
+      text-align: right
+      li
+        display inline-block
+        border-left 1px solid #f0ede9
+        a
+          display inline-block
+          padding 0 2.5rem
+          line-height 5.5rem
+          font-size 1.6rem
+          font-weight bold
+          color #7c7a65
+          text-decoration none
+          &:hover,&:active,&.active
+            color #ffb300
+            background-color #f8f6f1
+@media only screen and (max-width 50em){
+  header .main .brand{
+    float none
+    display block
+    padding 0
+    margin 1.5rem auto 0.5rem
+    text-align center
+  }
+}
+@media only screen and (min-width 30.0625em) and (max-width 50em){
+   header .main .brand{
+    margin 0.5rem 0 0 0
+  }
+  header .main ul{
+     text-align center
+   }
+    header .main ul li{
+      border none
+    }
+
+    header .main ul li a{
+      padding 0 1.5rem
+      line-height 3rem
+    }
+}
+@media only screen and (max-width 30.0625em){
+  header .main .brand{
+    margin 0.5rem 0 0 0
+  }
+  header .main ul{
+     text-align center
+   }
+    header .main ul li{
+      border none
+    }
+
+    header .main ul li a{
+      padding 0 1.5rem
+      line-height 3rem
+    }
+  header .main ul li:first-child{
+    display none
+  }
+  header .main ul li a{
+    font-weight normal
+    padding 0 0.5rem
+  }
+}
+.container
+  width 100%
+  .transaction
+    width 100%
+    background-color: #7c7365
+    .trans-content
+      max-width: 90%
+      margin 0 auto
+      font-size 1.5rem
+      .trans-data
+        float left
+        padding 2rem
+        text-align left
+        span
+          display inline-block
+          line-height 3rem
+          color #fff
+          &.trans-money
+            font-size 2.2rem
+            color #ff9900
+            letter-spacing: 3px
+            margin 0 1rem
+            padding 0 1rem
+            border-radius 3px
+            background-color rgba(255,255,255,0.6)
+            box-shadow 1px 2px 1px #333 inset
+      .trans-report
+        text-align right
+        a
+         display inline-block
+         padding 1rem
+         line-height 3rem
+         color: #fff
+@media only screen and (max-width 50em){
+    .container .transaction .trans-content .trans-data {
+      padding: 1rem 0.5rem;
+    }
+    .container .transaction .trans-content .trans-data span {
+    font-size 1.2rem
+  }
+  .container .transaction .trans-content .trans-data span.trans-money {
+    font-size: 1.6rem;
+    letter-spacing: inherit;
+    margin: 0 ;
+    padding: 0 ;
+    background: transparent
+    box-shadow:none;
+  }
+  .container .transaction .trans-content .trans-report {
+    text-align: right;
+  }
+  .container .transaction .trans-content .trans-report a {
+    font-size 1.2rem
+  }
+}
+
+@media only screen and (max-width 30.0625em){
+  .container .transaction  {
+    padding: 0.5rem 0;
+  }
+  .container .transaction .trans-content .trans-data,
+  .container .transaction .trans-content .trans-report {
+    float: none
+    text-align center
+    padding 0
+  }
+  .container .transaction .trans-content .trans-data,
+  .container .transaction .trans-content .trans-report a {
+    font-size 1rem
+    padding 0
+  }
+}
+
+  .ad
+    display none
+  .feature
+    width 90%
+    margin 2rem auto
+    font-size 0
+    .item
+      display inline-block
+      box-sizing: border-box
+      width calc(33.33333333333% - 1rem)
+      padding 1rem
+      font-size: 1.4rem
+      background-color #fff
+      box-shadow: 0 0 4px #ccc
+      &.item+.item
+        margin-left 1.5rem
+      h3
+        display inline-block
+        width 40%
+        margin 0
+        padding 0
+        vertical-align top
+        font-size: 3.3rem
+        text-align center
+        color #ff9900
+      p
+        display inline-block
+        width 55%
+        margin 0
+        padding 0
+        color #999
+@media only screen and (max-width 50em){
+  .feature .item h3,
+  .feature .item p{
+    display block
+    width 100%
+    font-size 2.6rem
+    text-align center
+  }
+  .feature .item p{
+    font-size 1.2rem
+  }
+}
+@media only screen and (max-width 30.0625em){
+  .feature{
+    width 96%
+    margin 1rem auto
+  }
+  .feature .item{
+    display flex
+    width auto
+  }
+  // .feature .item h3,
+  .feature .item p{
+    margin 0 3rem
+  }
+  .feature .item{
+    margin-left 1.5rem
+    margin-right 1.2rem
+  }
+  .feature .item + .item{
+    margin 1rem 1.2rem 0 0
+  }
+}
+  .notice
+    width 90%
+    margin 2rem auto
+    font-size 1.4rem
+    line-height 3rem
+    background-color #fff
+    box-shadow: 0 0 4px #cccccc
+    a
+      float left
+      display inline-block
+      width 70%
+      margin-left 2rem
+      text-decoration none
+      &:first-child //不换行，多余的文字以省略号表示
+        text-overflow: ellipsis
+        overflow hidden
+        white-space nowrap
+        &:before
+          content '最新公告:\00a0\00a0' // \00a0表示空格，在伪元素里只能这么表示空格
+          color #aaa
+      span
+        color #999
+        font-size 1.2rem
+        margin-right 1rem
+    .more
+      width 10%
+      float right
+      margin-right 2rem
+      color #ff9900
+  @media only screen and (max-width 30.0625em){
+   .notice{
+      width 96%
+      margin 1rem auto
+      font-size 1.2rem
+    }
+    .notice a{
+      margin-left 1rem
+    }
+     .notice a span,
+     .notice .more{
+      display none
+    }
+  }
+  .product
+    width 90%
+    margin 2rem auto
+    font-size 1.4rem
+    background-color #f5f9fa
+    border-top 2px solid #ff9900
+    box-shadow 0 0 4px #cccccc
+    h2
+      float left
+      width 20%
+      margin-top 3rem
+      text-align center
+      font-size 2.4rem
+      font-weight normal
+      color #635c51
+      em
+        display block
+        margin-top 1rem
+        font-size 1.6rem
+        &:first-child
+          margin-top 4rem
+    .product-content
+      float right
+      width 79.5%
+      border-left 1px solid #eee
+      background-color #fff
+      .item
+        width 100%
+        // background red
+        &.item + .item
+          border-top 1px solid #eee
+        h3
+          float left
+          width 30%
+          margin 1.5rem 0
+          font-size 1.4rem
+          font-weight normal
+          text-align center
+          em
+            margin-right 0.5rem
+            font-size 3.6rem
+            font-style normal
+            color #8b999d
+        .info
+          float left
+          width 48%
+          padding 1rem
+          border-left 1px solid #eee
+          border-right: 1px solid #eee
+          font-size 14px
+          // background red
+          p
+            display inline-block
+            float left
+            text-align center
+            width 56%
+            &:last-child
+              width 40%
+            span
+              display block
+              font-size 2.4rem
+              color #ff9900
+              i
+                font-size 1.2rem
+                font-style normal
+                color #999
+
+        .buy
+          float left
+          width calc(22% - 4.4rem)
+          padding 1rem
+          a
+            display block
+            width 90%
+            margin 1.5rem auto
+            max-width 12rem
+            line-height 4rem
+            text-align center
+            text-decoration none
+            color #fff
+            background-color #ff9900
+            border-radius 5px
+            &:hover,:active
+              background-color #ffc468
+            &.disabled
+              background-color #ccc !important
+              cursor not-allowed
+
+  .footer
+    padding: 3rem 0
+    background-color #fff
+    border-top 2px solid #eee
+    .foot-content
+      width 90%
+      margin 0 auto
+      .brand
+        float left
+        display block
+        filter grayscale(100%) //灰色滤镜
+        width 20%
+        height 35px
+        background url(../img/logo@1x.png) no-repeat
+        background-size 150px 35px
+      ul
+        float left
+        width 15%
+        li
+          font-size 1.4rem
+          line-height: 2.4rem
+          .title
+            font-size 1.6rem
+            line-height: 3rem
+footer
+  width 100%
+  padding 3rem 0 5rem
+  background-color #ededed
+  ul
+    text-align center
+    li
+      display inline-block
+      .icon
+        display inline-block
+        text-indent -999rem
+        margin-right 1.5rem
+        background url(../img/cert1.png) no-repeat
+        background-size 466px 447px
+        overflow hidden
+        &.icon-zfywxk
+          width 38px
+          height 27px
+          background-position: -369px -45px
+        &.icon-pcirk
+          width 78px
+          height 27px
+          background-position: -110px -96px
+        &.icon-viseyz
+          width 36px
+          height 27px
+          background-position: -426px -90px
+        &.icon-vsjmfw
+          width 63px
+          height 27px
+          margin-right 13px
+          background-position: -401px -186px
+        &.icon-wlgs
+          width 22px
+          height 27px
+          background-position: -48px -48px
+        &.icon-rzcx
+          width 75px
+          height 27px
+          background-position: 0 -320px
+        &.icon-gs
+          width 30px
+          height 30px
+          margin-right 0
+          background url(../img/cert2.png) no-repeat
+          background-size 30px
+  p
+  text-align center
+  color #999

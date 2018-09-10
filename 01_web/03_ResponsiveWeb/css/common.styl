@@ -1,0 +1,59 @@
+// 公工样式有一些只在本项目中使用
+
+html
+  font-size 62.5% //1rem = 10px
+  color #222
+
+//选中文字的背景色
+::selection
+  background-color #b3d4fc
+  text-shadow none
+
+ul
+ margin 0
+ padding 0
+
+li
+ list-style none
+
+/*============
+  工具样式
+=============*/
+.conter-block
+  display block
+  margin-right auto
+  margin-left auto
+.pull-left
+  float left !important
+.pull-right
+  float right !important
+.text-right
+  text-align right !important
+.text-left
+  text-align left !important
+.text-center
+  text-align center !important
+.hide
+  display none !important
+.show
+  display block !important
+.invisible
+  visibility hidden
+.text-hide
+  font 0/0 a
+  color transparent
+  text-shadow none
+  background-color transparent
+  border 0
+
+.clearfix:before,
+.clearfix:after
+  content:''
+  display table
+.clearfix:after
+  clear both
+
+.browserupgrade
+  margin 0
+  padding 1rem
+  background #ccc
