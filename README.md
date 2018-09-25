@@ -8,7 +8,7 @@
 
 2、css3
 
-[扇子](https://pin84.github.io/live/05_css3/01_folding)  |  [3D轮播](https://pin84.github.io/live/05_css3/02_showPage)  |  [屏幕壁纸](https://pin84.github.io/live/05_css3/03_wallPage)   |    [下落的小球](https://pin84.github.io/live/06_canvas/01_ball)    |  [跳动的小球](https://pin84.github.io/live/06_canvas/02_jumpBall)  | [3D照片拖拽](https://pin84.github.io/live/05_css3/05_3dPictrues)  |
+[扇子](https://pin84.github.io/live/05_css3/01_folding)  |  [3D轮播](https://pin84.github.io/live/05_css3/02_showPage)  |  [屏幕壁纸](https://pin84.github.io/live/05_css3/03_wallPage)   |    [下落的小球](https://pin84.github.io/live/06_canvas/01_ball)    |  [跳动的小球](https://pin84.github.io/live/06_canvas/02_jumpBall)  | [3D照片拖拽](https://pin84.github.io/live/05_css3/05_3dPictrues)  |   [飞到屏幕左下角的小球](https://pin84.github.io/live/05_css3/06_intoShoppingcart.html)
 
 3、网页效果
 

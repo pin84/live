@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #ball {
+      width: 12px;
+      height: 12px;
+      background: #5ea345;
+      border-radius: 50%;
+      position: fixed;
+      transition: left 1s linear, top 1s ease-in;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="ball"></div>
+  
+  <script>
+    let ball = document.getElementById('ball')
+    document.addEventListener('click', (e) => {
+      console.log(e.pageX, e.pageY);
+      ball.style.top = e.pageY + 'px'
+      ball.style.left = e.pageX + 'px'
+      ball.style.transition = 'left 0s,top 0s'
+      setTimeout(() => {
+        ball.style.top = window.innerHeight + 'PX'
+        ball.style.left = '0px'
+        ball.style.transition = 'left 1s linear,top 1s ease-in'
+      },200)
+    })
+  </script>
+</body>
+
+</html>
