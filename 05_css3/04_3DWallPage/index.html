@@ -1,52 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>3D照片墙</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!--<link rel="stylesheet" type="text/css" href="./fonts/iconfont.css">-->
-    <style type="text/css">
-        .icon {
-            width: 1em; height: 1em;
-            vertical-align: -0.15em;
-            fill: currentColor;
-            overflow: hidden;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>3D照片墙</title>
+  <!--<link rel="stylesheet" type="text/css" href="./fonts/iconfont.css">-->
+  <link rel="stylesheet" href="css/index.css">
+  <style type="text/css">
+    .icon {
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="photo_wall">
+  <div class="photo_wall">
     <!--照片和导航区域-->
     <div class="photo">
-        <!--照片外层，用来做旋转和位移-->
-        <div class="photo_i front center">
-            <!--照片内层，用来做3d翻转-->
-            <div class="photo_3d">
-                <!--照片正面-->
-                <div class="photo_side photo_front">
-                    <p><img src="../../common/img/imgCartoon/1.jpg"></p>
-                    <h3>这是照片的标题</h3>
-                </div>
-                <!--照片背面-->
-                <div class="photo_side photo_back">
-                    <p class="desc">照片的描述信息</p>
-                </div>
-            </div>
+      <div class="photo_i front" id="{{id}}">
+        <div class="photo_3d">
+          <div class="photo_side photo_front">
+            <p>
+              <img {{src}}="{{img}}">
+            </p>
+            <h3>{{caption}}</h3>
+          </div>
+          <!--照片背面-->
+          <div class="photo_side photo_back">
+            <p class="desc">{{desc}}</p>
+          </div>
         </div>
-        <!--导航区域-->
-        <div class="nav">
-            <span class="nav_i"></span>
-            <span class="nav_i"></span>
-            <span class="nav_i">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-shape38"></use>
-                 </svg>
-            </span>
-        </div>
+      </div>
+      {{split}}
+      <!--导航区域-->
+      <div class="nav">
+        <span class="nav_i" id="nav_{{id}}"></span>
+      </div>
     </div>
     <!--遮罩层-->
-    <div class="start">Start View</div>
-</div>
+    <!-- <div class="shade">
+      <div class="start">Start View</div>
+    </div> -->
+  </div>
+
+  <script src="./js/data.js"></script>
+  <script src="./js/tools.js"></script>
+  <script src="./js/photo.js"></script>
 </body>
+
 </html>
