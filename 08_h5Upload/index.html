@@ -108,6 +108,7 @@
 		area.addEventListener('drop',drag,false)
 
 		function drag(e) {
+			console.log(e)
 			e.preventDefault()
 			switch(e.type){
 				case 'dragenter':
