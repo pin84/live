@@ -78,14 +78,3 @@ img{
 /*============
   button
 =============*/
-.btn{
-  display: inline-block;
-  font-weight: $btn-font-weight;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  outline:0;
-  padding:1rem 1rem;
-  border-radius:5px;
-
-}

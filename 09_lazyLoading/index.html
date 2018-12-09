@@ -5,235 +5,108 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="../common/style/normalize.css">
-  <link rel="stylesheet" href="../common/style/util.css">
-  <title>Document</title>
+  <title>图片懒加载</title>
 
   <style>
     * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
-    .container {
-      position: relative;
+    li {
+      list-style: none;
     }
 
-    .box {
-      float: left;
-      padding: 5px;
-      width:250px;
-      box-sizing:border-box;
+    .box ul li {
+      height: 700px;
+      width: 60%;
+      box-sizing: border-box;
+      border: 1px solid red;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .box-img {
-      padding: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow:0 0 10px #ccc
-    }
-
-    img {
-      width: 230px;
-      height: auto;
+    .box ul li img {
+      display: block;
     }
   </style>
 </head>
 
 <body>
-  <div id='container'>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page2_1.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page2_5.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page2_1.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page2_5.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page2_1.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page4_1.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page2_1.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page2_5.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page2_1.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page2_5.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page2_1.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page4_1.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page2_1.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page2_5.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page2_1.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page2_5.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page2_1.png">
-      </div>
-    </div>
-    <div class="box">
-      <div class="box-img">
-        <img src="../common/fullPage/page4_1.png">
-      </div>
-    </div>
+
+  <div class="box">
+    <ul>
+      <li>
+        <img data-src="../common/img/imgCartoon/1.jpg" alt="">
+      </li>
+      <li>
+        <img data-src="../common/img/imgCartoon/2.jpg" alt="">
+      </li>
+      <li>
+        <img data-src="../common/img/imgCartoon/3.jpg" alt="">
+      </li>
+      <li>
+        <img data-src="../common/img/imgCartoon/4.jpg" alt="">
+      </li>
+      <li>
+        <img data-src="../common/img/imgCartoon/5.jpg" alt="">
+      </li>
+      <li>
+        <img data-src="../common/img/imgCartoon/6.jpg" alt="">
+      </li>
+      <li>
+        <img data-src="../common/img/imgCartoon/7.jpg" alt="">
+      </li>
+      <li>
+        <img data-src="../common/img/imgCartoon/8.jpg" alt="">
+      </li>
+      <li>
+        <img data-src="../common/img/imgCartoon/9.jpg" alt="">
+      </li>
+      <li>
+        <img data-src="../common/img/imgCartoon/10.jpg" alt="">
+      </li>
+    </ul>
   </div>
 
-  <script src="../common/js/myAjax.js"></script>
-  <script type="text/javascript">
-    window.onload = function () { 
 
-      imgLocation('container','box')
+  <script>
 
-      let imgData = {data:[{src:'../common/img/1.png'},{src:'../common/img/5.png'},{src:'../common/img/8.png'},{src:'../common/img/9.png'},]}
-      window.onscroll = function(){
-        if(checkFlag()){
-          let parent = document.getElementById('container')
-          for(let i = 0; i < imgData.data.length; i++){
+    window.addEventListener('click', (e) => {
+      console.log(e.offsetX, e.offsetY)
 
-            let div = document.createElement('div')
-            div.className = 'box'
-            container.appendChild(div)
-            let divImg = document.createElement('div')
-            divImg.className = 'box-img'
-            div.appendChild(divImg)
-            let img = document.createElement('img')
-            img.src = imgData.data[i].src
-            divImg.appendChild(img)
-          }
-          imgLocation('container','box')
+    })
+
+
+    function imgOnload() {
+      let imgs = document.querySelectorAll('img')
+
+      imgs.forEach(img => {
+        // console.log(window.innerHeight)
+        // console.log(img.getBoundingClientRect())
+
+        if (img.getBoundingClientRect().top < window.innerHeight) {
+          img.src = img.dataset.src
         }
-      }
+      })
     }
-
-    function imgLocation(parentId,className) {
-
-      let parent = document.getElementById(parentId)
-      let content = getChildElements(parent,className)
-
-      //一排放多少个图片
-      let imgWidth = content[0].offsetWidth
-      let num = Math.floor(document.documentElement.clientWidth / imgWidth)
-      parent.style.cssText = 'width:'+imgWidth*num+'px;margin:0 auto;'
-      
-      let boxHeightArr = []
-      for(let i = 0; i < content.length; i++ ){
-        if(i < num) {
-          boxHeightArr[i] = content[i].offsetHeight
-        } else { // 第一排之外的图片的TOP值为最小的那张
-          let minHieght = Math.min.apply(null,boxHeightArr)
-          let minIndex = getMinHeightLocaltion(boxHeightArr,minHieght)
-          content[i].style.position = 'absolute'
-          content[i].style.top = minHieght + 'px'
-          content[i].style.left = content[minIndex].offsetLeft +'px'
-
-          //第一排最小的图片的高度加上第二排放在他后面的那张的高度
-          boxHeightArr[minIndex] +=  content[i].offsetHeight
-
-        }
-      }
-    }
+    imgOnload()
 
 
+    window.addEventListener('scroll', () => {
 
-    
-    function checkFlag() {
-      let container = document.getElementById('container')
-      let content = getChildElements(container,'box')
 
-      let lastContentHeight = content[content.length - 1].offsetTop
-      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-      let pageHeight = document.documentElement.clientHeight || document.boyd.clientHeight
+      let timer = setTimeout(() => {
+        imgOnload()
+      }, 1500);
 
-      if(lastContentHeight < scrollTop + pageHeight){
-        return true
-      }  
-    }
-    
 
-    //拿到最小高度图片的位置
-    function getMinHeightLocaltion(boxHeightArr,minHeight) {
-      for(let i in boxHeightArr){
-        if(boxHeightArr[i] === minHeight){
-          return i
-        }
-      }
-    }
-
-    //拿到最小高度的位置
-    function getMinHeightLocation(heightArr,minHeight) {
-      for(let i in heightArr){
-        if(heightArr[i] === minHeight){
-          return i
-        }
-      }  
-    }
-
-    //拿到指定元素下的所有指定类名的子元素
-    function getChildElements(parent,className) {
-      let arr = []
-      let allContent = parent.getElementsByClassName(className)
-      for(let i = 0 ,item;item = allContent[i++];){
-        arr.push(item)
-      }
-      return arr
-    }
+    })
   </script>
+
 </body>
 
 </html>
