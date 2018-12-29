@@ -5,10 +5,8 @@
 1、一些静态页面
 
   [miaov2013官网](https://pin84.github.io/live/01_web/01_miaov)  +  [源码](https://github.com/pin84/live/tree/master/01_web/01_miaov)  	|  	 [yiling 官网 ](https://pin84.github.io/live/01_web/05_yiling/)  + [源码](https://github.com/pin84/live/tree/master/01_web/05_yiling)  	|	  [道锋集团](https://pin84.github.io/live/01_web/02_daofeng/)  +  [源码](https://github.com/pin84/live/tree/master/01_web/02_daofeng)	|	 [响应式页面-理财网站](https://pin84.github.io/live/01_web/03_ResponsiveWeb)    +  [源码](https://github.com/pin84/live/tree/master/01_web/03_ResponsiveWeb)	|    [weimeiyige](https://pin84.github.io/live/01_web/06_weimeiyige)	|	 [100du](https://pin84.github.io/live/01_web/07_100du)
+  [js钢琴](https://pin84.github.io/live/01_web/04_JavaScriptDrumKit)  | [淘宝放大镜效果](https://pin84.github.io/live/01_web/08_magnifier)
 
-2、jsPractice
-
-[js钢琴](https://pin84.github.io/live/02_jspractice/01_JavaScriptDrumKit)    |    [淘宝放大镜效果](https://pin84.github.io/live/02_jspractice/02_magnifier) 
 
 
 
